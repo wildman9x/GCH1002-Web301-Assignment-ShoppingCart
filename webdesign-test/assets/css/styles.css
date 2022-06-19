@@ -526,3 +526,146 @@ a:hover {
   position: absolute;
 }
 
+.product-list {
+  margin-top: 40px;
+}
+
+.product-item {
+  display: block;
+  font-size: 0;
+  padding: 10px;
+  padding-bottom: 10px;
+  position: relative;
+  vertical-align: middle;
+  width: 33.33%;
+}
+
+.product-item-container {
+  cursor: default;
+  position: relative;
+  width: 100%;
+}
+
+.product-item-image-container {
+  border: solid 2px #212121;
+  font-size: 0;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.product-image {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+@media only screen and (min-width: 1024px) and (hover: hover), not all .product-item.rollover:hover img, .product-item.rollover:active img, .product-item.rollover:focus img {
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  opacity: 0.8;
+}
+
+.product-item-status {
+  background: #212121;
+  color: #F8F8F9;
+  font-size: 12px;
+  left: 0;
+  padding: 6px 10px;
+  position: absolute;
+  top: 0;
+}
+
+figure {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+}
+
+.product-item-info {
+  border: solid 2px #212121;
+  border-top: 0;
+  padding: 20px 0;
+}
+
+@media only screen and (min-width: 1024px) and (hover: hover), not all .product-item.rollover:hover .product-item-info, .product-item.rollover:active .product-item-info, .product-list-item.rollover:focus .product-list-info opacity: 1; @media only screen and (min-width: 1024px) and (hover: hover), not all .product-item.rollover .product-list-item-info {
+  opacity: 1;
+}
+
+@media only screen and (min-width: 1024px) and (hover: hover), (-moz-touch-enabled: 0) .product-item.rollover .product-item-info {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  background: #212121;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+}
+
+.product-item.rollover:hover .product-list-item-info, .product-item.rollover:active .product-list-item-info, .product-item.rollover:focus .product-item-info {
+  opacity: 1;
+}
+
+.product-item.rollover .product-item-info * {
+  color: #F8F8F9;
+}
+
+.product-item-info {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  background: #212121;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+}
+
+.product-item-info-header {
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  font-size: 16px;
+  line-height: 22px;
+  padding: 0 20px;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.product-item-container:hover, .product-item-info {
+  color: #F8F8F9;
+  opacity: 1;
+}
+
+.product-item-info-name {
+  padding-right: 20px;
+  position: relative;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.product-item-price {
+  margin-left: auto;
+}
+
+.product-item-info:hover {
+  /*opacity: 1;*/
+}
+
