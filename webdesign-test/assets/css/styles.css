@@ -253,8 +253,10 @@ img {
   padding: 50px 0px 50px 50px;
 }
 
-@media screen and (min-width: 1025px) .has-welcome .sidebar {
-  padding-top: 50px;
+@media screen and (min-width: 1025px) {
+  .has-welcome .sidebar {
+    padding-top: 50px;
+  }
 }
 
 .sidebar-nav-title {
@@ -560,10 +562,12 @@ a:hover {
   width: 100%;
 }
 
-@media only screen and (min-width: 1024px) and (hover: hover), not all .product-item.rollover:hover img, .product-item.rollover:active img, .product-item.rollover:focus img {
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
-  opacity: 0.8;
+@media only screen and (min-width: 1024px) and (hover: hover), not all {
+  .product-item.rollover:hover img, .product-item.rollover:active img, .product-item.rollover:focus img {
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    opacity: 0.8;
+  }
 }
 
 .product-item-status {
@@ -590,22 +594,32 @@ figure {
   padding: 20px 0;
 }
 
-@media only screen and (min-width: 1024px) and (hover: hover), not all .product-item.rollover:hover .product-item-info, .product-item.rollover:active .product-item-info, .product-list-item.rollover:focus .product-list-info opacity: 1; @media only screen and (min-width: 1024px) and (hover: hover), not all .product-item.rollover .product-list-item-info {
-  opacity: 1;
+@media only screen and (min-width: 1024px) and (hover: hover), not all {
+  .product-item.rollover:hover .product-item-info, .product-item.rollover:active .product-item-info, .product-list-item.rollover:focus .product-list-info {
+    opacity: 1;
+  }
 }
 
-@media only screen and (min-width: 1024px) and (hover: hover), (-moz-touch-enabled: 0) .product-item.rollover .product-item-info {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  background: #212121;
-  bottom: 0;
-  position: absolute;
-  width: 100%;
-  opacity: 0;
+@media only screen and (min-width: 1024px) and (hover: hover), not all {
+  .product-item.rollover .product-list-item-info {
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (hover: hover), (-moz-touch-enabled: 0) {
+  .product-item.rollover .product-item-info {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background: #212121;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+  }
 }
 
 .product-item.rollover:hover .product-list-item-info, .product-item.rollover:active .product-list-item-info, .product-item.rollover:focus .product-item-info {
