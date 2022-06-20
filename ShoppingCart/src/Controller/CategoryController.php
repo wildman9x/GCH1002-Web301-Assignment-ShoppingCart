@@ -54,11 +54,40 @@ class CategoryController extends AbstractController
                'Success',
                'Add category success !'
             );
-            return $this->redirectToRoute('iew_list_category');
+            return $this->redirectToRoute('view_list_category');
         }
         return $this->render('category/add.html.twig',[
             'categoryForm'=>$form->createView()
         ]);
     }
-    
+    #[Route('/edit/{id}', name: 'edit_category')]
+    public function CategoryEdit(CategoryRepository $categoryRepository, $id)
+    {
+        $categorys = $categoryRepository->find(id);
+        if ($categorys= null) {
+            $this->addFlash(
+               'Error',
+               'Category not found !'
+            );
+        } else {
+            $form = $this->createForm(CategoryType::class, $categorys);
+            $form->handleRequest($request);
+            
+            if ($form->isSubmitted() && $form->isValid()) { 
+                $manager=$this->getDoctrine()->getManager();
+                $manager->persist($categorys);
+                $manager->flush();
+                $this->addFlash(
+                   'success',
+                   'Edit category success !'
+                );
+                return $this->redirectToRoute('view_list_category');
+            }
+        return $this->renderForm('category/edit.html.twig',
+    [
+        'categoryForm'=> $form
+    ]);
+
+        }
+    }
 }
