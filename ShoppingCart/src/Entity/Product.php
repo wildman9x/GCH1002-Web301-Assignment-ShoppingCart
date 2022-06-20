@@ -37,10 +37,14 @@ class Product
     #[ORM\ManyToMany(targetEntity: OrderInfo::class, mappedBy: 'productID')]
     private $orderInfos;
 
+    #[ORM\OneToMany(mappedBy: 'productID', targetEntity: Image::class)]
+    private $images;
+
     public function __construct()
     {
         $this->carts = new ArrayCollection();
         $this->orderInfos = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -157,6 +161,36 @@ class Product
     {
         if ($this->orderInfos->removeElement($orderInfo)) {
             $orderInfo->removeProductID($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Image>
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setProductID($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getProductID() === $this) {
+                $image->setProductID(null);
+            }
         }
 
         return $this;
