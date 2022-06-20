@@ -26,6 +26,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     private $password;
 
+    #[ORM\OneToOne(mappedBy: 'email', targetEntity: Customer::class, cascade: ['persist', 'remove'])]
+    private $customer;
+
+    #[ORM\OneToOne(mappedBy: 'email', targetEntity: Employee::class, cascade: ['persist', 'remove'])]
+    private $employee;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -113,5 +119,39 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getCustomer(): ?Customer
+    {
+        return $this->customer;
+    }
+
+    public function setCustomer(Customer $customer): self
+    {
+        // set the owning side of the relation if necessary
+        if ($customer->getEmail() !== $this) {
+            $customer->setEmail($this);
+        }
+
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    public function getEmployee(): ?Employee
+    {
+        return $this->employee;
+    }
+
+    public function setEmployee(Employee $employee): self
+    {
+        // set the owning side of the relation if necessary
+        if ($employee->getEmail() !== $this) {
+            $employee->setEmail($this);
+        }
+
+        $this->employee = $employee;
+
+        return $this;
     }
 }
