@@ -77,12 +77,14 @@ h2 {
   line-height: 55px;
   margin: 0 auto;
   /*width: 255px;*/
+  box-shadow: 0 0.25em 0 0;
 }
 
 .button:hover {
   background-color: #212121;
   color: #ffffff;
   text-decoration: none;
+  /*box-shadow: 0 1em 0 0;*/
 }
 
 .diagonal-line {
@@ -681,5 +683,10 @@ figure {
 
 .product-item-info:hover {
   /*opacity: 1;*/
+}
+
+.button:active {
+  box-shadow: none;
+  transform: translateY(0.25em);
 }
 
