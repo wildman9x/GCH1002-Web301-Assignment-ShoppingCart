@@ -13,24 +13,24 @@ class CategoryController extends AbstractController
     #[Route('/', name: 'view_list_category')]
     public function CategoryIndex(CategoryRepository $categoryRepository)
     {
-        $categorys= $categoryRepository->findAll();
+        $category= $categoryRepository->findAll();
         return $this->render('category/index.html.twig', [
-            'categorys' => $categorys
+            'categorys' => $category
         ]);
     }
 
     #[Route('/delete/{id}', name: 'delete_category')]
     public function CategoryDelete(CategoryRepository $categoryRepository, $id)
     {
-        $categorys = $categoryRepository->find(id);
-        if ($categorys= null) {
+        $category = $categoryRepository->find(id);
+        if ($category= null) {
             $this->addFlash(
                'Error',
                'category not found !'
             );
         } else {
             $manager = $this->getDoctrine()->getManager();
-            $manager->remove($categorys);
+            $manager->remove($category);
             $manager->flush();
             $this->addFlash(
                'Success',
@@ -43,13 +43,13 @@ class CategoryController extends AbstractController
     #[Route('/add/{id}', name: 'add_category')]
     public function CategoryAdd(CategoryRepository $categoryRepository)
     {
-        $categorys = new Category;
-        $form = $this->createForm(CategoryType::class, $categorys);
+        $category = new Category;
+        $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) { 
             $manager = $this->getDoctrine()->getManager();
-            $manager->persist($categorys);
+            $manager->persist($category);
             $manager->flush();
             $this->addFlash(
                'Success',
@@ -64,19 +64,19 @@ class CategoryController extends AbstractController
     #[Route('/edit/{id}', name: 'edit_category')]
     public function CategoryEdit(CategoryRepository $categoryRepository, $id)
     {
-        $categorys = $categoryRepository->find(id);
-        if ($categorys= null) {
+        $category = $categoryRepository->find(id);
+        if ($category= null) {
             $this->addFlash(
                'Error',
                'Category not found !'
             );
         } else {
-            $form = $this->createForm(CategoryType::class, $categorys);
+            $form = $this->createForm(CategoryType::class, $category);
             $form->handleRequest($request);
             
             if ($form->isSubmitted() && $form->isValid()) { 
                 $manager=$this->getDoctrine()->getManager();
-                $manager->persist($categorys);
+                $manager->persist($category);
                 $manager->flush();
                 $this->addFlash(
                    'success',

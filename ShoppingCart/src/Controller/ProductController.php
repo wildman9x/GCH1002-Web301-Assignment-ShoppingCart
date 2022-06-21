@@ -15,16 +15,28 @@ class CategoryController extends AbstractController
     #[Route('/', name: 'view_list_product')]
     public function ProductIndex(ProductRepository $productRepository)
     {
-        $products= $productRepository->findAll();
+        $product = $productRepository->findAll();
         return $this->render('product/index.html.twig', [
-            'products' => $products
+            'products' => $product
         ]);
+    }
+
+    #[Route('/detail/{id}', name: 'view_product_by_id')]
+    public function ProductDetail(ProductRepository $productRepository, $id)
+    {
+        $product = $productRepository->find($id);
+        return $this->render(
+            "product/detail.html.twig",
+        [
+            'products' => $product
+        ]
+        );
     }
 
     #[Route('/delete/{id}', name: 'delete_product')]
     public function ProductDelete(ProductRepository $productRepository, $id)
     {
-        $products = $productRepository->find(id);
+        $product = $productRepository->find(id);
         if ($products= null) {
             $this->addFlash(
                'Error',
@@ -45,13 +57,13 @@ class CategoryController extends AbstractController
     #[Route('/add/{id}', name: 'add_product')]
     public function ProductAdd(ProductRepository $productRepository)
     {
-        $products = new Product;
-        $form = $this->createForm(ProductType::class, $products);
+        $product = new Product;
+        $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) { 
             $manager = $this->getDoctrine()->getManager();
-            $manager->persist($products);
+            $manager->persist($product);
             $manager->flush();
             $this->addFlash(
                'Success',
@@ -66,8 +78,8 @@ class CategoryController extends AbstractController
     #[Route('/edit/{id}', name: 'edit_product')]
     public function ProductEdit(ProductRepository $productRepository, $id)
     {
-        $products = $productRepository->find(id);
-        if ($products= null) {
+        $product = $productRepository->find(id);
+        if ($product= null) {
             $this->addFlash(
                'Error',
                'product not found !'
@@ -98,9 +110,9 @@ class CategoryController extends AbstractController
     public function SearchProductName(ProductRepository $productRepository, Request $request)
     {
         $name = $request->get('% keyword %');
-        $products = $productRepository-> searchByName($name);
+        $product = $productRepository-> searchByName($name);
         return $this->render('product/index.html.twig',[
-            'prodcuts' => $products
+            'prodcuts' => $product
         ]);;
     }
 }

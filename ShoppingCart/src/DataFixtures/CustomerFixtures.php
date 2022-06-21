@@ -9,7 +9,7 @@ class CustomerFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
+        $customer = new Product();
         // $manager->persist($product);
 
         $manager->flush();
