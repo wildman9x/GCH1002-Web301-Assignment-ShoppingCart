@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Repository\CategoryRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route('/category')]
 class CategoryController extends AbstractController
 {
@@ -56,9 +57,9 @@ class CategoryController extends AbstractController
             );
             return $this->redirectToRoute('view_list_category');
         }
-        return $this->render('category/add.html.twig',[
-            'categoryForm'=>$form->createView()
-        ]);
+        // return $this->render('category/add.html.twig',[
+        //     'categoryForm'=>$form->createView()
+        // ]);
     }
     #[Route('/edit/{id}', name: 'edit_category')]
     public function CategoryEdit(CategoryRepository $categoryRepository, $id)
@@ -83,10 +84,10 @@ class CategoryController extends AbstractController
                 );
                 return $this->redirectToRoute('view_list_category');
             }
-        return $this->renderForm('category/edit.html.twig',
-    [
-        'categoryForm'=> $form
-    ]);
+    //     return $this->renderForm('category/edit.html.twig',
+    // [
+    //     'categoryForm'=> $form
+    // ]);
 
         }
     }
