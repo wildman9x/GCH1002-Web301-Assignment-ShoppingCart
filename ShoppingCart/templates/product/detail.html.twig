@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div>
+<table>
+   <tr>
+      <th>Product Detail</th>
+   </tr>
+   <tr>
+      <th>Product Name</th>
+      <td>{{ product.name }}</td>
+   </tr>
+   <tr>
+      <th>Product Price</th>
+      <td>{{ product.price }}</td>
+   </tr>
+   <tr>
+      <th>Product Information</th>
+      <td>{{ product.info }}</td>
+   </tr>
+   <tr>
+      <th>Product category</th>
+      <td>{{ product.category.id }}</td>
+   </tr>
+   <tr>
+      <th>category List</th>
+      <td>
+         {% if product.category != null %}
+            {% for category in product.categorys %}
+            <a href="{{ path('view_category_by_id', {'id':category.id })}}">
+                  {{ category.name }}
+            </a>   
+            <br>
+         {% endfor %}
+         {% endif %}     
+      </td>
+   </tr>
+</table>
+</div>
+{% endblock %}
