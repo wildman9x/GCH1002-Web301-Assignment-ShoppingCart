@@ -1,0 +1,10 @@
+name: kokeshi wooden doll
+price: 120.000
+Color: pink, yellow, blue, red, black
+Material: wood
+
+Product description: Kokeshi are hand-made Japanese wooden dolls and are known as one of the oldest and most important traditional folk art works in Japan.
+Kokeshi symbolizes peace and luck. The Japanese believe that children who play Kokeshi will be blessed with health and protected by the gods.
+Kokeshi wooden dolls are made from treated wood to ensure no termites and hygiene.
+
+made in Japan
