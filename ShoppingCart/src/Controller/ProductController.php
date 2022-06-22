@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 // route to homepage
 #[Route('/product')]
-class CategoryController extends AbstractController
+class ProductController extends AbstractController
 {
     #[Route('/', name: 'view_list_product')]
     public function ProductIndex(ProductRepository $productRepository)
