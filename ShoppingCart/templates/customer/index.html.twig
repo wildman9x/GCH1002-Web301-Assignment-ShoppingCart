@@ -1,20 +1,32 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello CustomerController!{% endblock %}
+{% extends "base.html.twig" %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/wildm/Desktop/Class/Greenwich/WEBG301/Assignment/GCH1002-Web301-Assignment-ShoppingCart/ShoppingCart/src/Controller/CustomerController.php'|file_link(0) }}">src/Controller/CustomerController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/wildm/Desktop/Class/Greenwich/WEBG301/Assignment/GCH1002-Web301-Assignment-ShoppingCart/ShoppingCart/templates/customer/index.html.twig'|file_link(0) }}">templates/customer/index.html.twig</a></code></li>
-    </ul>
+<div>
+<table>
+   <tr>
+      <th class="text text-bg-success" colspan="2">Customer Detail</th>
+   </tr>
+   <tr>
+      <th>Customer Name</th>
+      <td>{{ customer.name }}</td>
+   </tr>
+   <tr>
+      <th>Class Quantity</th>
+      <td>{{ class.quantity }}</td>
+   </tr>
+   <tr>
+      <th>Course List</th>
+      <td>
+         {% if class.courses != null %}
+            {% for course in class.courses %}
+            <a href="{{ path('view_course_by_id', {'id':course.id })}}">
+                  {{ course.name }}
+            </a>   
+            <br>
+         {% endfor %}
+         {% endif %}     
+      </td>
+   </tr>
+</table>
 </div>
 {% endblock %}
