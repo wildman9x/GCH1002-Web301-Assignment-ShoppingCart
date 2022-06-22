@@ -60,7 +60,7 @@ h2 {
 .button {
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
-  background-color: #c9c68c;
+  background-color: #c9908c;
   border-radius: 0;
   border: solid 3px #212121;
   color: #212121;
@@ -143,7 +143,7 @@ h2 {
 
 .cart-count {
   transition: 0.2s ease-in-out;
-  background: #c9c68c;
+  background: #c9908c;
   border: solid 4px #212121;
   display: block;
   line-height: 51px;
@@ -262,7 +262,7 @@ img {
 }
 
 .sidebar-nav-title {
-  background: #c9c68c;
+  background: #c9908c;
   border: solid 4px #212121;
   cursor: pointer;
   line-height: normal;
@@ -688,5 +688,77 @@ figure {
 .button:active {
   box-shadow: none;
   transform: translateY(0.25em);
+}
+
+.product-heading {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  position: relative;
+  top: 0;
+  z-index: 100;
+}
+
+.product-title {
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  padding-right: 25px;
+  margin-bottom: 10px;
+}
+
+.product-subtitle {
+  font-size: 22px;
+  line-height: 36px;
+}
+
+div {
+  display: block;
+}
+
+.product-status {
+  background: #212121;
+  color: #F8F8F9;
+  font-size: 11px;
+  padding: 6px 10px;
+  vertical-align: middle;
+}
+
+.pagination {
+  text-align: center;
+  align-content: center;
+  color: #212121;
+}
+
+.page-link {
+  color: #212121;
+}
+
+page-link:hover {
+  color: #212121;
+}
+
+.carousel-indicators li {
+  /*width: 0.5em;*/
+}
+
+.carousel-indicators li {
+  width: 0.75em;
+  height: 0.75em;
+  background-color: #dec7b2;
+  border: solid;
+}
+
+.product-description {
+  margin: 50px 0;
+  max-width: 600px;
+  word-break: break-word;
+  width: 100%;
 }
 
