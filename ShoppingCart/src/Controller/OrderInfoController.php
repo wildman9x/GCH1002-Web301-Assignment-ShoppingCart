@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 #[Route('/employee')]
 class OrderInfoController extends AbstractController
-
+{
     #[Route('/', name: 'view_list_orderInfo')]
     public function orderInfoIndex(OrderInfoRepository $orderInfoRepository)
     {
