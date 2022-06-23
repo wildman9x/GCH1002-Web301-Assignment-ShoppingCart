@@ -37,7 +37,7 @@ class ProductController extends AbstractController
     public function ProductDelete(ProductRepository $productRepository, $id)
     {
         $product = $productRepository->find(id);
-        if ($products= null) {
+        if ($product= null) {
             $this->addFlash(
                'Error',
                'product not found !'
@@ -85,12 +85,12 @@ class ProductController extends AbstractController
                'product not found !'
             );
         } else {
-            $form = $this->createForm(ProductType::class, $categorys);
+            $form = $this->createForm(ProductType::class, $product);
             $form->handleRequest($request);
             
             if ($form->isSubmitted() && $form->isValid()) { 
                 $manager=$this->getDoctrine()->getManager();
-                $manager->persist($products);
+                $manager->persist($product);
                 $manager->flush();
                 $this->addFlash(
                    'success',
