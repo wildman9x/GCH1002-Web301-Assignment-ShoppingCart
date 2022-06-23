@@ -71,9 +71,9 @@ class ProductController extends AbstractController
             );
             return $this->redirectToRoute('view_list_product');
         }
-        // return $this->render('category/add.html.twig',[
-        //     'categoryForm'=>$form->createView()
-        // ]);
+         return $this->render('product/add.html.twig',[
+             'productForm'=>$form->createView()
+         ]);
     }
     #[Route('/edit/{id}', name: 'edit_product')]
     public function ProductEdit(ProductRepository $productRepository, $id)
@@ -98,10 +98,10 @@ class ProductController extends AbstractController
                 );
                 return $this->redirectToRoute('view_list_product');
             }
-    //     return $this->renderForm('category/edit.html.twig',
-    // [
-    //     'categoryForm'=> $form
-    // ]);
+         return $this->renderForm('product/edit.html.twig',
+    [
+        'productForm'=> $form
+    ]);
 
         }
     }
