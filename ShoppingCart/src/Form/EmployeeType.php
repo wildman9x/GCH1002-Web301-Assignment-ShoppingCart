@@ -14,7 +14,7 @@ public function buildForm(FormBuilderInterface $builder, array $options): void{
     ['label'=>'Name Employee'
     ])
 
-   ->add('Position', TextTy pe::class, 
+   ->add('Position', TextType::class, 
    [
     'label' => 'Position'
    ])
