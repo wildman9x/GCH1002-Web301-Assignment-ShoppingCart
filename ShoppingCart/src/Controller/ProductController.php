@@ -7,6 +7,7 @@ use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 // route to homepage
 #[Route('/product')]
@@ -36,7 +37,7 @@ class ProductController extends AbstractController
     #[Route('/delete/{id}', name: 'delete_product')]
     public function ProductDelete(ProductRepository $productRepository, $id)
     {
-        $product = $productRepository->find(id);
+        $product = $productRepository->find($id);
         if ($product= null) {
             $this->addFlash(
                'Error',
@@ -44,7 +45,7 @@ class ProductController extends AbstractController
             );
         } else {
             $manager = $this->getDoctrine()->getManager();
-            $manager->remove($products);
+            $manager->remove($product);
             $manager->flush();
             $this->addFlash(
                'Success',
@@ -54,8 +55,18 @@ class ProductController extends AbstractController
         return $this->redirectToRoute('view_list_product');
     }
 
-    #[Route('/add/{id}', name: 'add_product')]
-    public function ProductAdd(ProductRepository $productRepository)
+    #[Route('/add', name: 'add_product')]
+    public function ProductAdd(ProductRepository $productRepository, Request $request)
+    // {
+    //     $product = new Product();
+    //     $form = $this->createFormBuilder($product)
+    //         ->add('name')
+    //         ->add('price')
+    //         ->add('description')
+    //         ->add('image')
+    //         ->add('save', SubmitType::class, ['label' => 'Add Product'])
+    //         ->getForm();
+    //     $form->handleRequest($request);
     {
         $product = new Product;
         $form = $this->createForm(ProductType::class, $product);
@@ -76,9 +87,9 @@ class ProductController extends AbstractController
          ]);
     }
     #[Route('/edit/{id}', name: 'edit_product')]
-    public function ProductEdit(ProductRepository $productRepository, $id)
+    public function ProductEdit(ProductRepository $productRepository, $id, Request $request)
     {
-        $product = $productRepository->find(id);
+        $product = $productRepository->find($id);
         if ($product= null) {
             $this->addFlash(
                'Error',
