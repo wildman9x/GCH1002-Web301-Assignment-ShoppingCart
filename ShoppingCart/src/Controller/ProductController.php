@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Form\ProductType;
 use App\Repository\ProductRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,82 +29,93 @@ class ProductController extends AbstractController
         $product = $productRepository->find($id);
         return $this->render(
             "product/detail.html.twig",
-        [
-            'products' => $product
-        ]
+            [
+                'products' => $product
+            ]
         );
     }
 
     #[Route('/delete/{id}', name: 'delete_product')]
     public function ProductDelete(ProductRepository $productRepository, $id)
     {
-        $product = $productRepository->find(id);
-        if ($product= null) {
+        $product = $productRepository->find($id);
+        if ($product = null) {
             $this->addFlash(
-               'Error',
-               'product not found !'
+                'Error',
+                'product not found !'
             );
         } else {
             $manager = $this->getDoctrine()->getManager();
-            $manager->remove($products);
+            $manager->remove($product);
             $manager->flush();
             $this->addFlash(
-               'Success',
-               'Delete product success !'
+                'Success',
+                'Delete product success !'
             );
         }
         return $this->redirectToRoute('view_list_product');
     }
 
-    #[Route('/add/{id}', name: 'add_product')]
-    public function ProductAdd(ProductRepository $productRepository)
+    #[Route('/add', name: 'add_product')]
+    public function ProductAdd(ProductRepository $productRepository, Request $request)
+    // {
+    //     $product = new Product();
+    //     $form = $this->createFormBuilder($product)
+    //         ->add('name')
+    //         ->add('price')
+    //         ->add('description')
+    //         ->add('image')
+    //         ->add('save', SubmitType::class, ['label' => 'Add Product'])
+    //         ->getForm();
+    //     $form->handleRequest($request);
     {
-        $product = new Product;
+        $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
-        
-        if ($form->isSubmitted() && $form->isValid()) { 
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($product);
             $manager->flush();
             $this->addFlash(
-               'Success',
-               'Add product success !'
+                'Success',
+                'Add product success !'
             );
             return $this->redirectToRoute('view_list_product');
         }
-         return $this->render('product/add.html.twig',[
-             'productForm'=>$form->createView()
-         ]);
+        return $this->render('product/add.html.twig', [
+            'productForm' => $form->createView()
+        ]);
     }
     #[Route('/edit/{id}', name: 'edit_product')]
-    public function ProductEdit(ProductRepository $productRepository, $id)
+    public function ProductEdit(ProductRepository $productRepository, $id, Request $request)
     {
-        $product = $productRepository->find(id);
-        if ($product= null) {
+        $product = $productRepository->find($id);
+        if ($product = null) {
             $this->addFlash(
-               'Error',
-               'product not found !'
+                'Error',
+                'product not found !'
             );
         } else {
             $form = $this->createForm(ProductType::class, $product);
             $form->handleRequest($request);
-            
-            if ($form->isSubmitted() && $form->isValid()) { 
-                $manager=$this->getDoctrine()->getManager();
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $manager = $this->getDoctrine()->getManager();
                 $manager->persist($product);
                 $manager->flush();
                 $this->addFlash(
-                   'success',
-                   'Edit product success !'
+                    'success',
+                    'Edit product success !'
                 );
                 return $this->redirectToRoute('view_list_product');
             }
-         return $this->renderForm('product/edit.html.twig',
-    [
-        'productForm'=> $form
-    ]);
-
+            return $this->renderForm(
+                'product/edit.html.twig',
+                [
+                    'productForm' => $form
+                ]
+            );
         }
     }
 
@@ -110,8 +123,8 @@ class ProductController extends AbstractController
     public function SearchProductName(ProductRepository $productRepository, Request $request)
     {
         $name = $request->get('% keyword %');
-        $product = $productRepository-> searchByName($name);
-        return $this->render('product/index.html.twig',[
+        $product = $productRepository->searchByName($name);
+        return $this->render('product/index.html.twig', [
             'prodcuts' => $product
         ]);;
     }
