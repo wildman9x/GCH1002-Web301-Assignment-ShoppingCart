@@ -71,9 +71,9 @@ class EmployeeController extends AbstractController
             );
             return $this->redirectToRoute('view_list_employee');
         }
-        //      return $this->render('customer/add.html.twig',[
-        //         'customerForm'=>$form->createView()
-        //  ]);
+              return $this->render('employee/add.html.twig',[
+                 'employeeForm'=>$form->createView()
+          ]);
     }
     #[Route('/edit/{id}', name: 'edit_employee')]
     public function customerEdit(EmployeeRepository $employeeRepository, $id)
@@ -98,10 +98,10 @@ class EmployeeController extends AbstractController
                 );
                 return $this->redirectToRoute('view_list_employee');
             }
-            //     return $this->renderForm('category/edit.html.twig',
-            // [
-            //     'categoryForm'=> $form
-            // ]);
+                 return $this->renderForm('employee/edit.html.twig',
+             [
+                'employeeForm'=> $form
+             ]);
 
         }
     }

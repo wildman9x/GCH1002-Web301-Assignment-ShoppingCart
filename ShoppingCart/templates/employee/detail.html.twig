@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+{% block body %}
+   <div class="container col-md-5 text-center mb-3">
+      <div class="row">
+         {# <div class="col">
+            <img src="{{ employee.image }}" width="300" height="400" />
+         </div> #}
+         <div class="col">
+            <h1>{{ employee.email }}</h1>
+            <h2>Price: {{ employee.name }} $</h2>
+            <h2>Quantity: {{ employee.position }}</h2>
+            <h2>Color: {{ employee.phone}}</h2>
+         </div>
+      </div>
+   </div>
+{% endblock %}

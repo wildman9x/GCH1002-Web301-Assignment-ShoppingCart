@@ -7,6 +7,7 @@ use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 #[Route('/category')]
 class CategoryController extends AbstractController
 {
@@ -22,7 +23,7 @@ class CategoryController extends AbstractController
     #[Route('/delete/{id}', name: 'delete_category')]
     public function CategoryDelete(CategoryRepository $categoryRepository, $id)
     {
-        $category = $categoryRepository->find(id);
+        $category = $categoryRepository->find($id);
         if ($category= null) {
             $this->addFlash(
                'Error',
@@ -41,7 +42,7 @@ class CategoryController extends AbstractController
     }
 
     #[Route('/add/{id}', name: 'add_category')]
-    public function CategoryAdd(CategoryRepository $categoryRepository)
+    public function CategoryAdd(CategoryRepository $categoryRepository, Request $request)
     {
         $category = new Category;
         $form = $this->createForm(CategoryType::class, $category);
@@ -62,9 +63,9 @@ class CategoryController extends AbstractController
         // ]);
     }
     #[Route('/edit/{id}', name: 'edit_category')]
-    public function CategoryEdit(CategoryRepository $categoryRepository, $id)
+    public function CategoryEdit(CategoryRepository $categoryRepository, $id, Request $request)
     {
-        $category = $categoryRepository->find(id);
+        $category = $categoryRepository->find($id);
         if ($category= null) {
             $this->addFlash(
                'Error',
