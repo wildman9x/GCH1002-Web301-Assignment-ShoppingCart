@@ -7,6 +7,8 @@ use App\Repository\CustomerRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use App\Entity\Customer;
 
 #[Route('/customer')]
 class CustomerController extends AbstractController
@@ -36,7 +38,7 @@ class CustomerController extends AbstractController
     #[Route('/delete/{id}', name: 'delete_customer')]
     public function customerDelete(CustomerRepository $customerRepository, $id)
     {
-        $customer = $customerRepository->find(id);
+        $customer = $customerRepository->find($id);
         if ($customer = null) {
             $this->addFlash(
                 'Error',
@@ -55,7 +57,7 @@ class CustomerController extends AbstractController
     }
 
     #[Route('/add/{id}', name: 'add_product')]
-    public function customerAdd(CustomerRepository $customerRepository)
+    public function customerAdd(CustomerRepository $customerRepository, Request $request)
     {
         $customer = new Customer;
         $form = $this->createForm(CustomerType::class, $customer);
@@ -76,9 +78,9 @@ class CustomerController extends AbstractController
         //  ]);
     }
     #[Route('/edit/{id}', name: 'edit_customer')]
-    public function customerEdit(CustomerRepository $customerRepository, $id)
+    public function customerEdit(CustomerRepository $customerRepository, $id, Request $request)
     {
-        $customer = $customerRepository->find(id);
+        $customer = $customerRepository->find($id);
         if ($customer = null) {
             $this->addFlash(
                 'Error',
