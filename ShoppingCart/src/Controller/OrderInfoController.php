@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\OrderInfo;
+use App\Repository\OrderInfoRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-#[Route('/employee')]
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+#[Route('/orderInfo')]
 class OrderInfoController extends AbstractController
 {
     #[Route('/', name: 'view_list_orderInfo')]
@@ -33,7 +36,7 @@ class OrderInfoController extends AbstractController
     #[Route('/delete/{id}', name: 'delete_orderInfo')]
     public function orderInfoDelete(OrderInfoRepository $orderInfoRepository, $id)
     {
-        $orderInfo = $orderInfoRepository->find(id);
+        $orderInfo = $orderInfoRepository->find($id);
         if ($orderInfo = null) {
             $this->addFlash(
                 'Error',
@@ -51,8 +54,8 @@ class OrderInfoController extends AbstractController
         return $this->redirectToRoute('view_list_orderInfo');
     }
 
-    #[Route('/add/{id}', name: 'add_orderInfo')]
-    public function orderInfoAdd(OrderInfoRepository $orderInfoRepository)
+    #[Route('/add', name: 'add_orderInfo')]
+    public function orderInfoAdd(OrderInfoRepository $orderInfoRepository, Request $request)
     {
         $orderInfo = new OrderInfo;
         $form = $this->createForm(OrderInfoType::class, $orderInfo);
@@ -73,9 +76,9 @@ class OrderInfoController extends AbstractController
         //  ]);
     }
     #[Route('/edit/{id}', name: 'edit_orderInfo')]
-    public function customerEdit(OrderInfoRepository $orderInfoRepository, $id)
+    public function customerEdit(OrderInfoRepository $orderInfoRepository, $id, Request $request)
     {
-        $orderInfo = $orderInfoRepository->find(id);
+        $orderInfo = $orderInfoRepository->find($id);
         if ($orderInfo = null) {
             $this->addFlash(
                 'Error',
@@ -103,13 +106,13 @@ class OrderInfoController extends AbstractController
         }
     }
 
-     #[Route('/searchByName', name: 'search_orderInfo_name')]
-     public function SearchOrderInfo(OrderInfoRepository $orderInfoRepository, Request $request)
-     {
-         $name = $request->get('% keyword %');
-         $orderInfo = $orderInfoRepository->searchByName($name);
-         return $this->render('orderInfo/index.html.twig', [
-            'orderInfos' => $orderInfo
-         ]);;
-    }
+    //  #[Route('/searchByName', name: 'search_orderInfo_name')]
+    //  public function SearchOrderInfo(OrderInfoRepository $orderInfoRepository, Request $request)
+    //  {
+    //      $name = $request->get('% keyword %');
+    //      $orderInfo = $orderInfoRepository->searchByName($name);
+    //      return $this->render('orderInfo/index.html.twig', [
+    //         'orderInfos' => $orderInfo
+    //      ]);;
+    // }
 }

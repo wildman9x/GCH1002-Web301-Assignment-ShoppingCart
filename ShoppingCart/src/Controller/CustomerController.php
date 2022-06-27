@@ -57,7 +57,7 @@ class CustomerController extends AbstractController
         return $this->redirectToRoute('view_list_product');
     }
 
-    #[Route('/add/{id}', name: 'add_product')]
+    #[Route('/add', name: 'add_customer')]
     public function customerAdd(CustomerRepository $customerRepository, Request $request)
     {
         $customer = new Customer;
