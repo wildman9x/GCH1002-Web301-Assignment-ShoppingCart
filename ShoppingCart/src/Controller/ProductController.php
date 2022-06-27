@@ -58,16 +58,6 @@ class ProductController extends AbstractController
 
     #[Route('/add', name: 'add_product')]
     public function ProductAdd(ProductRepository $productRepository, Request $request)
-    // {
-    //     $product = new Product();
-    //     $form = $this->createFormBuilder($product)
-    //         ->add('name')
-    //         ->add('price')
-    //         ->add('description')
-    //         ->add('image')
-    //         ->add('save', SubmitType::class, ['label' => 'Add Product'])
-    //         ->getForm();
-    //     $form->handleRequest($request);
     {
         $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
@@ -119,10 +109,40 @@ class ProductController extends AbstractController
         }
     }
 
+    #[Route('/sortbyprice/asc', name: 'sort_product_price_ascending')]
+    public function ProductSortAscending(ProductRepository $productRepository) {
+        $product = $productRepository->sortByPriceAscending();
+        return $this->render(
+            "product/index.html.twig",
+            [
+                'products' => $product
+            ]);
+    }
+
+    #[Route('/sortbyprice/desc', name: 'sort_product_price_descending')]
+    public function productSortDescending(ProductRepository $productRepository) {
+        $product = $productRepository->sortByPriceDescending();
+        return $this->render(
+            "product/index.html.twig",
+            [
+                'products' => $product
+            ]);
+    }
+
+    #[Route('/sortbyname/asc', name: 'sort_product_name_ascending')]
+    public function ProductSortNameAscending(ProductRepository $productRepository) {
+        $product = $productRepository->sortByNameAscending();
+        return $this->render(
+            "product/index.html.twig",
+            [
+                'products' => $product
+            ]);
+    }
+
     #[Route('/searchByName', name: 'search_product_name')]
     public function SearchProductName(ProductRepository $productRepository, Request $request)
     {
-        $name = $request->get('% keyword %');
+        $name = $request->get(' keyword ');
         $product = $productRepository->searchByName($name);
         return $this->render('product/index.html.twig', [
             'prodcuts' => $product
