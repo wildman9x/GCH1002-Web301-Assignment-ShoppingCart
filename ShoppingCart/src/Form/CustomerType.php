@@ -11,6 +11,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+
+
 
 
 class CustomerType extends Abstracttype
@@ -20,25 +23,14 @@ class CustomerType extends Abstracttype
     // add email into the User class
     $builder
 
-    //   ->add('email', EntityType::class ,
-    // [
-    //   'label' => 'Email',
-    //   'required' => true,
-    //   'class' => User::class
-    // ])
-    ->add('email', TextType::class, [
-      'label' => 'Email',
-      'constraints' => [
-        new Length([
-          'min' => 5,
-          'max' => 255,
-          'minMessage' => 'Your email must be at least {{ limit }} characters long',
-          'maxMessage' => 'Your email cannot be longer than {{ limit }} characters',
-        ]),
-      ]
-    ])
-      ->add('name', TextType::class , [
-      'label' => 'Name Custommer'
+
+    ->add('email', EntityType::class,
+    [
+      'label'=>'Email',
+
+      'class'=>User::class,
+
+
 
     ])
 

@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,12 +17,26 @@ class EmployeeType extends AbstractType
         $builder
         ->add('email')
             ->add(
-            'name',
-            TextType::class ,
-        [
-            'label' => 'Name Employee'
-        ]
-        )
+
+                'email',
+                EntityType::class,
+                [
+                    'label' => 'Email',
+                    'class' => User::class,
+
+                ]
+            )
+            ->add(
+                'name',
+                TextType::class,
+                [
+                    'label' => 'Name Employee'
+                ]
+            )
+
+
+
+
             ->add(
             'position',
             TextType::class ,
