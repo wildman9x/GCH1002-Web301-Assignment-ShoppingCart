@@ -5,7 +5,10 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class EmployeeType extends AbstractType
 {
@@ -19,7 +22,11 @@ class EmployeeType extends AbstractType
                 [
                     'label' => 'Email',
                     'class' => User::class,
-
+                    'choice_label' => 'email',
+                    'placeholder' => 'Choose an email',
+                    'required' => true,
+                    'expanded' => false,
+                    'multiple' => false,
                 ]
             )
             ->add(
@@ -42,15 +49,12 @@ class EmployeeType extends AbstractType
 
 
             ->add(
-                'Numberphone',
-                IntergerType::class,
+                'phone',
+                TextType::class,
                 [
-                    'label' => 'Numberphone',
-                    'attr' => [
-                        'min' => 10,
-                        'max' => 10
-                    ]
+                    'label' => 'Phone'
                 ]
+
             )
             ->add('save', SubmitType::class);
     }

@@ -23,6 +23,12 @@ class CustomerType extends Abstracttype
     [
       'label'=>'Email',
       'class'=>User::class,
+      'choice_label'=>'email',
+      'placeholder'=>'Choose an email',
+      'required'=>true,
+      'expanded'=>false,
+      'multiple'=>false,
+
 
     ])
       ->add('name', TextType::class, [
@@ -30,7 +36,7 @@ class CustomerType extends Abstracttype
         ])
 
       ->add(
-        'phoneNumber', IntegerType::class,
+        'phoneNumber', TextType::class,
         [
           'label' => 'Phone Number',
           'constraints'=>[
