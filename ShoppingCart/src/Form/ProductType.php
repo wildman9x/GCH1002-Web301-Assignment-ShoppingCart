@@ -61,6 +61,14 @@ class ProductType extends AbstractType
                     'label' => 'Information'
                 ]
             )
+            ->add('image', EntityType::class, [
+                'label' => 'Image',
+                'required' => true,
+                'class' => Category::class,
+                'choice_label' => 'image',
+                'multiple' => true,
+                'expanded' => false
+            ])
             ->add('Save', SubmitType::class);
     }
 
