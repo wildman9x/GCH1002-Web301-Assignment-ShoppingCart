@@ -54,7 +54,7 @@ class OrderInfoController extends AbstractController
         return $this->redirectToRoute('view_list_orderInfo');
     }
 
-    #[Route('/add/{id}', name: 'add_orderInfo')]
+    #[Route('/add', name: 'add_orderInfo')]
     public function orderInfoAdd(OrderInfoRepository $orderInfoRepository, Request $request)
     {
         $orderInfo = new OrderInfo;

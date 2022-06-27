@@ -54,7 +54,7 @@ class EmployeeController extends AbstractController
         return $this->redirectToRoute('view_list_employee');
     }
 
-    #[Route('/add/{id}', name: 'add_employee')]
+    #[Route('/add', name: 'add_employee')]
     public function employeeAdd(EmployeeRepository $employeeRepository)
     {
         $employee = new Employee;
