@@ -2,13 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Customer;
 use App\Repository\ProductRepository;
 use App\Repository\CustomerRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use App\Entity\Customer;
+
 
 #[Route('/customer')]
 class CustomerController extends AbstractController
@@ -73,9 +74,9 @@ class CustomerController extends AbstractController
             );
             return $this->redirectToRoute('view_list_customer');
         }
-        //      return $this->render('customer/add.html.twig',[
-        //         'customerForm'=>$form->createView()
-        //  ]);
+              return $this->render('customer/add.html.twig',[
+                 'customerForm'=>$form->createView()
+          ]);
     }
     #[Route('/edit/{id}', name: 'edit_customer')]
     public function customerEdit(CustomerRepository $customerRepository, $id, Request $request)
@@ -100,10 +101,10 @@ class CustomerController extends AbstractController
                 );
                 return $this->redirectToRoute('view_list_customer');
             }
-            //     return $this->renderForm('category/edit.html.twig',
-            // [
-            //     'categoryForm'=> $form
-            // ]);
+                 return $this->renderForm('customer/edit.html.twig',
+             [
+                 'customerForm'=> $form
+             ]);
 
         }
     }
