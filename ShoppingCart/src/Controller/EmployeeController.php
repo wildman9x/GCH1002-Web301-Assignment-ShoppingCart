@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Employee;
+use App\Form\EmployeeType;
 use App\Repository\CustomerRepository;
 use App\Repository\EmployeeRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,7 +23,7 @@ class EmployeeController extends AbstractController
         ]);
     }
 
-    
+
     #[Route('/detail/{id}', name: 'view_employee_by_id')]
     public function employeeDetail(EmployeeRepository $employeeRepository, $id)
     {
@@ -54,13 +57,12 @@ class EmployeeController extends AbstractController
         return $this->redirectToRoute('view_list_employee');
     }
 
-    #[Route('/add/{id}', name: 'add_employee')]
-    public function employeeAdd(EmployeeRepository $employeeRepository)
+    #[Route('/add', name: 'add_employee')]
+    public function employeeAdd(Request $request)
     {
-        $employee = new Employee;
+        $employee = new Employee();
         $form = $this->createForm(EmployeeType::class, $employee);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($employee);
@@ -71,12 +73,14 @@ class EmployeeController extends AbstractController
             );
             return $this->redirectToRoute('view_list_employee');
         }
-        //      return $this->render('customer/add.html.twig',[
-        //         'customerForm'=>$form->createView()
-        //  ]);
+        return $this->render('employee/add.html.twig', [
+            'employeeForm' => $form->createView()
+        ]);
     }
+
+
     #[Route('/edit/{id}', name: 'edit_employee')]
-    public function customerEdit(EmployeeRepository $employeeRepository, $id)
+    public function customerEdit(EmployeeRepository $employeeRepository, Request $request, $id)
     {
         $employee = $employeeRepository->find(id);
         if ($employee = null) {
@@ -98,21 +102,22 @@ class EmployeeController extends AbstractController
                 );
                 return $this->redirectToRoute('view_list_employee');
             }
-            //     return $this->renderForm('category/edit.html.twig',
-            // [
-            //     'categoryForm'=> $form
-            // ]);
-
+            return $this->renderForm(
+                'employee/edit.html.twig',
+                [
+                    'employeeForm' => $form
+                ]
+            );
         }
     }
 
-     #[Route('/searchByName', name: 'search_employee_name')]
-     public function SearchEmployeeName(EmployeeRepository $employeeRepository, Request $request)
-     {
-         $name = $request->get('% keyword %');
-         $employee = $employeeRepository->searchByName($name);
-         return $this->render('employee/index.html.twig', [
+    #[Route('/searchByName', name: 'search_employee_name')]
+    public function SearchEmployeeName(EmployeeRepository $employeeRepository, Request $request)
+    {
+        $name = $request->get('% keyword %');
+        $employee = $employeeRepository->searchByName($name);
+        return $this->render('employee/index.html.twig', [
             'employees' => $employee
-         ]);;
+        ]);;
     }
 }

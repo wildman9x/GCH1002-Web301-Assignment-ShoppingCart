@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Cart;
+use App\Form\CartType;
 use App\Repository\CartRepository;
 use App\Repository\CustomerRepository;
+use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -35,8 +38,8 @@ class CartController extends AbstractController
     #[Route('/delete/{id}', name: 'delete_cart')]
     public function ccartDelete(CartRepository $cartRepository, $id)
     {
-        $cart = $cartRepository->find(id);
-        if ($cart = null) {
+        $cart = $cartRepository->find($id);
+        if ($cart == null) {
             $this->addFlash(
                 'Error',
                 'cart not found !'
@@ -53,31 +56,31 @@ class CartController extends AbstractController
         return $this->redirectToRoute('view_list_cart');
     }
 
-    #[Route('/add/{id}', name: 'add_cart')]
-    public function cartAdd(CartRepository $cartRepository)
-    {
-        $cart = new Cart;
-        $form = $this->createForm(CartType::class, $cart);
-        $form->handleRequest($request);
+    // #[Route('/add/{id}', name: 'add_cart')]
+    // public function cartAdd(CartRepository $cartRepository)
+    // {
+    //     $cart = new Cart;
+    //     $form = $this->createForm(CartType::class, $cart);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $manager = $this->getDoctrine()->getManager();
-            $manager->persist($cart);
-            $manager->flush();
-            $this->addFlash(
-                'Success',
-                'Add cart success !'
-            );
-            return $this->redirectToRoute('view_list_cart');
-        }
-        //      return $this->render('customer/add.html.twig',[
-        //         'customerForm'=>$form->createView()
-        //  ]);
-    }
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $manager = $this->getDoctrine()->getManager();
+    //         $manager->persist($cart);
+    //         $manager->flush();
+    //         $this->addFlash(
+    //             'Success',
+    //             'Add cart success !'
+    //         );
+    //         return $this->redirectToRoute('view_list_cart');
+    //     }
+    //     //      return $this->render('customer/add.html.twig',[
+    //     //         'customerForm'=>$form->createView()
+    //     //  ]);
+    // }
     #[Route('/edit/{id}', name: 'edit_cart')]
-    public function customerEdit(CartRepository $cartRepository, $id)
+    public function customerEdit(CartRepository $cartRepository, $id, Request $request)
     {
-        $cart = $cartRepository->find(id);
+        $cart = $cartRepository->find($id);
         if ($cart = null) {
             $this->addFlash(
                 'Error',
@@ -97,10 +100,10 @@ class CartController extends AbstractController
                 );
                 return $this->redirectToRoute('view_list_cart');
             }
-            //     return $this->renderForm('category/edit.html.twig',
-            // [
-            //     'categoryForm'=> $form
-            // ]);
+                 return $this->renderForm('cart/edit.html.twig',
+             [
+                 'cartForm'=> $form
+             ]);
 
         }
     }

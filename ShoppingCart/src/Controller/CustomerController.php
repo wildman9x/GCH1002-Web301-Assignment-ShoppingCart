@@ -2,11 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Customer;
+use App\Form\CustomerType;
 use App\Repository\ProductRepository;
 use App\Repository\CustomerRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 
 #[Route('/customer')]
 class CustomerController extends AbstractController
@@ -36,8 +40,8 @@ class CustomerController extends AbstractController
     #[Route('/delete/{id}', name: 'delete_customer')]
     public function customerDelete(CustomerRepository $customerRepository, $id)
     {
-        $customer = $customerRepository->find(id);
-        if ($customer = null) {
+        $customer = $customerRepository->find($id);
+        if ($customer == null) {
             $this->addFlash(
                 'Error',
                 'customer not found !'
@@ -54,8 +58,8 @@ class CustomerController extends AbstractController
         return $this->redirectToRoute('view_list_product');
     }
 
-    #[Route('/add/{id}', name: 'add_product')]
-    public function customerAdd(CustomerRepository $customerRepository)
+    #[Route('/add', name: 'add_customer')]
+    public function customerAdd(CustomerRepository $customerRepository, Request $request)
     {
         $customer = new Customer;
         $form = $this->createForm(CustomerType::class, $customer);
@@ -71,14 +75,14 @@ class CustomerController extends AbstractController
             );
             return $this->redirectToRoute('view_list_customer');
         }
-        //      return $this->render('customer/add.html.twig',[
-        //         'customerForm'=>$form->createView()
-        //  ]);
+              return $this->render('customer/add.html.twig',[
+                 'customerForm'=>$form->createView()
+          ]);
     }
     #[Route('/edit/{id}', name: 'edit_customer')]
-    public function customerEdit(CustomerRepository $customerRepository, $id)
+    public function customerEdit(CustomerRepository $customerRepository, $id, Request $request)
     {
-        $customer = $customerRepository->find(id);
+        $customer = $customerRepository->find($id);
         if ($customer = null) {
             $this->addFlash(
                 'Error',
@@ -98,10 +102,10 @@ class CustomerController extends AbstractController
                 );
                 return $this->redirectToRoute('view_list_customer');
             }
-            //     return $this->renderForm('category/edit.html.twig',
-            // [
-            //     'categoryForm'=> $form
-            // ]);
+                 return $this->renderForm('customer/edit.html.twig',
+             [
+                 'customerForm'=> $form
+             ]);
 
         }
     }
