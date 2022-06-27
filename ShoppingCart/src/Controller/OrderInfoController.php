@@ -37,7 +37,7 @@ class OrderInfoController extends AbstractController
     public function orderInfoDelete(OrderInfoRepository $orderInfoRepository, $id)
     {
         $orderInfo = $orderInfoRepository->find($id);
-        if ($orderInfo = null) {
+        if ($orderInfo == null) {
             $this->addFlash(
                 'Error',
                 'orderInfo not found !'
@@ -79,7 +79,7 @@ class OrderInfoController extends AbstractController
     public function customerEdit(OrderInfoRepository $orderInfoRepository, $id, Request $request)
     {
         $orderInfo = $orderInfoRepository->find($id);
-        if ($orderInfo = null) {
+        if ($orderInfo == null) {
             $this->addFlash(
                 'Error',
                 'orderInfo not found !'

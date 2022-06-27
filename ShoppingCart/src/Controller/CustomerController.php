@@ -41,7 +41,7 @@ class CustomerController extends AbstractController
     public function customerDelete(CustomerRepository $customerRepository, $id)
     {
         $customer = $customerRepository->find($id);
-        if ($customer = null) {
+        if ($customer == null) {
             $this->addFlash(
                 'Error',
                 'customer not found !'

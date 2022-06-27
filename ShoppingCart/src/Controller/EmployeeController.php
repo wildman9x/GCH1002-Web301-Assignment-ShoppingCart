@@ -2,8 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Employee;
+use App\Form\EmployeeType;
 use App\Repository\CustomerRepository;
 use App\Repository\EmployeeRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,7 +40,7 @@ class EmployeeController extends AbstractController
     public function employeeDelete(EmployeeRepository $employeeRepository, $id)
     {
         $employee = $employeeRepository->find(id);
-        if ($employee = null) {
+        if ($employee == null) {
             $this->addFlash(
                 'Error',
                 'employee not found !'
@@ -55,7 +58,7 @@ class EmployeeController extends AbstractController
     }
 
     #[Route('/add', name: 'add_employee')]
-    public function employeeAdd(EmployeeRepository $employeeRepository)
+    public function employeeAdd(EmployeeRepository $employeeRepository, Request $request)
     {
         $employee = new Employee;
         $form = $this->createForm(EmployeeType::class, $employee);
@@ -76,10 +79,10 @@ class EmployeeController extends AbstractController
           ]);
     }
     #[Route('/edit/{id}', name: 'edit_employee')]
-    public function customerEdit(EmployeeRepository $employeeRepository, $id)
+    public function customerEdit(EmployeeRepository $employeeRepository, $id,Request $request)
     {
-        $employee = $employeeRepository->find(id);
-        if ($employee = null) {
+        $employee = $employeeRepository->find($id);
+        if ($employee == null) {
             $this->addFlash(
                 'Error',
                 'employee not found !'
@@ -109,7 +112,7 @@ class EmployeeController extends AbstractController
      #[Route('/searchByName', name: 'search_employee_name')]
      public function SearchEmployeeName(EmployeeRepository $employeeRepository, Request $request)
      {
-         $name = $request->get('% keyword %');
+         $name = $request->get('keyword');
          $employee = $employeeRepository->searchByName($name);
          return $this->render('employee/index.html.twig', [
             'employees' => $employee
