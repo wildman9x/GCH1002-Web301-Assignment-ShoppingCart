@@ -19,41 +19,49 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('productID', TextType::class,[
-            'label'=>'Product ID'
-        ])
-        ->add('catId', EntityType::class,[
-            'label'=>'Category',
-            'required' => true,
-            // 'choices'=>array(
-            //     'C01'=>'Bamboo',
-            //     'C02'=> 'da'
-            // ),
-             'class'=>"App\Entity\Category",
-             'choice_label'=>'catId',
-            'multiple'=> true,
-            'expanded'=>false   
-        ])
-            ->add('name', TextType::class,
-            [
-                'label' => 'Name Product'
+            ->add('productID', TextType::class, [
+                'label' => 'Product ID'
             ])
-            // add price that accept a float type
-            ->add('price', NumberType::class,
-            [
-                'label' =>'Price',
-                'attr' => [
-                    'min'=>0,
-                    'max'=>300
+            ->add('catID', EntityType::class, [
+                'label' => 'Category',
+                'required' => true,
+                // 'choices'=>array(
+                //     'C01'=>'Bamboo',
+                //     'C02'=> 'da'
+                // ),
+                'class' => Category::class,
+                'choice_label' => 'catID',
+                'multiple' => false,
+                'expanded' => true
+            ])
+            ->add(
+                'name',
+                TextType::class,
+                [
+                    'label' => 'Name Product'
                 ]
+            )
+            // add price that accept a float type
+            ->add(
+                'price',
+                NumberType::class,
+                [
+                    'label' => 'Price',
+                    'attr' => [
+                        'min' => 0,
+                        'max' => 300
+                    ]
 
-            ])
-            ->add('info', TextType::class,
-            [
-                'label'=>'Information'
-            ])
-            ->add('Save', SubmitType::class)
-        ;
+                ]
+            )
+            ->add(
+                'info',
+                TextType::class,
+                [
+                    'label' => 'Information'
+                ]
+            )
+            ->add('Save', SubmitType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
