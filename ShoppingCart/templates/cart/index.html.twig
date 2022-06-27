@@ -1,20 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CartController!{% endblock %}
+{% block title %}Hello CartController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	{# Display a list of all category in a table #}
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Email</th>
+				<th>ProductID</th>
+				<th>Quantiy</th>
+				<th>menu</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for category in categories %}
+				<tr>
+					<td>{{ cart.id }}</td>
+					<td>{{ cart.email }}</td>
+					<td>{{ cart.roductID }}</td>
+					<td>{{ category.quantity }}</td>
+					<td>{{ca}}</td>
+					<td>
+						<a href="{{ path('view_cart_by_id', {'id': cart.id })}}">Detail</a>
+						<a href="{{ path('edit_category', {'id': category.id })}}">Edit</a>
+						<a href="{{ path('delete_category', {'id': category.id })}}" onclick="return confirm('Do you want to delete this category ?');">Delete</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/wildm/Desktop/Class/Greenwich/WEBG301/Assignment/GCH1002-Web301-Assignment-ShoppingCart/ShoppingCart/src/Controller/CartController.php'|file_link(0) }}">src/Controller/CartController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/wildm/Desktop/Class/Greenwich/WEBG301/Assignment/GCH1002-Web301-Assignment-ShoppingCart/ShoppingCart/templates/cart/index.html.twig'|file_link(0) }}">templates/cart/index.html.twig</a></code></li>
-    </ul>
-</div>
 {% endblock %}
