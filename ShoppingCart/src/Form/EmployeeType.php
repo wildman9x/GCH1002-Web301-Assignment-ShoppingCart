@@ -26,6 +26,7 @@ class EmployeeType extends AbstractType
 
                 ]
             )
+
             ->add(
                 'name',
                 TextType::class,
@@ -33,6 +34,7 @@ class EmployeeType extends AbstractType
                     'label' => 'Name Employee'
                 ]
             )
+
 
 
 
