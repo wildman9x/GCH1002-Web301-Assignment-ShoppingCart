@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -9,8 +10,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Security\Core\User\User;
+
 
 class CustomerType extends Abstracttype
 {
@@ -18,27 +18,39 @@ class CustomerType extends Abstracttype
   {
 
     $builder
-    ->add('email', EntityType::class,
-    [
-      'label'=>'Email',
-      
+    //   ->add('email', EntityType::class ,
+    // [
+    //   'label' => 'Email',
+    //   'required' => true,
+    //   'class' => User::class
+    // ])
+    ->add('email', TextType::class, [
+      'label' => 'Email',
+      'constraints' => [
+        new Length([
+          'min' => 5,
+          'max' => 255,
+          'minMessage' => 'Your email must be at least {{ limit }} characters long',
+          'maxMessage' => 'Your email cannot be longer than {{ limit }} characters',
+        ]),
+      ]
     ])
-      ->add('name', TextType::class, [
-        'label' => 'Name Custommer'
-        ])
+      ->add('name', TextType::class , [
+      'label' => 'Name Custommer'
+    ])
 
       ->add(
-        'phoneNumber', IntegerType::class,
-        [
-          'label' => 'Phone Number',
-          'constraints'=>[
-            new Length([
-              'max'=>10
-            ])
-            ],
-          
-        ]
-      )
+      'phoneNumber', TextType::class ,
+    [
+      'label' => 'Phone Number',
+      'constraints' => [
+        new Length([
+          'max' => 10
+        ])
+      ],
+
+    ]
+    )
 
       ->add('save', SubmitType::class);
   }
