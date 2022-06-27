@@ -25,7 +25,7 @@ class CategoryController extends AbstractController
     public function CategoryDelete(CategoryRepository $categoryRepository, $id)
     {
         $category = $categoryRepository->find($id);
-        if ($category= null) {
+        if ($category == null) {
             $this->addFlash(
                'Error',
                'category not found !'
@@ -63,11 +63,12 @@ class CategoryController extends AbstractController
              'categoryForm'=>$form->createView()
          ]);
     }
+    
     #[Route('/edit/{id}', name: 'edit_category')]
     public function CategoryEdit(CategoryRepository $categoryRepository, $id, Request $request)
     {
         $category = $categoryRepository->find($id);
-        if ($category= null) {
+        if ($category== null) {
             $this->addFlash(
                'Error',
                'Category not found !'

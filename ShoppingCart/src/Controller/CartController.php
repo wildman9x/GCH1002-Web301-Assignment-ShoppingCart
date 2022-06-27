@@ -39,7 +39,7 @@ class CartController extends AbstractController
     public function ccartDelete(CartRepository $cartRepository, $id)
     {
         $cart = $cartRepository->find($id);
-        if ($cart = null) {
+        if ($cart == null) {
             $this->addFlash(
                 'Error',
                 'cart not found !'
