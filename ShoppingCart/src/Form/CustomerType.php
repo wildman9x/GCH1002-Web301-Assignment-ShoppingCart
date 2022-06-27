@@ -12,16 +12,18 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Security\Core\User\User;
 
+
 class CustomerType extends Abstracttype
 {
   public function buildForm(FormBuilderInterface $builder, array $options): void
   {
-
+    // add email into the User class
     $builder
     ->add('email', EntityType::class,
     [
       'label'=>'Email',
       
+
     ])
       ->add('name', TextType::class, [
         'label' => 'Name Custommer'
