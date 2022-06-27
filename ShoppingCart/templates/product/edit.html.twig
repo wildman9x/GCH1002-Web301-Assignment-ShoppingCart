@@ -3,7 +3,9 @@
 {% block body %}
 <div>
 <h1>Edit product</h1>
-{{ form_start (productForm) }}
-{{ form_end (productForm) }}
+    
+    {{ form_start(productForm) }}
+    {{ form_widget(productForm) }}
+    {{ form_end(productForm) }}
 </div>
 {% endblock %}
