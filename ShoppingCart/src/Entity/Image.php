@@ -31,10 +31,14 @@ class Image
 
     public function setImageID(string $imageID): self
     {
-        $this->imageID = $imageID;
+        if ($imageID != null) {
+            $this->imageID = $imageID;
+        }
 
         return $this;
     }
+
+    
 
     public function getProductID(): ?Product
     {

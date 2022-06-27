@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{# form to add picture #}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Add a picture</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <input type="submit" value="Add" class="btn btn-primary" />
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{# form to add picture #}
+{# {% block javascripts %}
+    {{ parent() }}
+    <script src=\"{{ asset('js/jquery.js') }}\"></script>
+    <script src=\"{{ asset('js/bootstrap.js') }}\"></script>
+{% endblock %} #}
