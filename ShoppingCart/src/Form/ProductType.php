@@ -2,12 +2,15 @@
 
 namespace App\Form;
 
-use Symfony\Component\Form\AbstractType;
+use App\Entity\Category;
 
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
@@ -16,6 +19,21 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+        ->add('productID', TextType::class,[
+            'label'=>'Product ID'
+        ])
+        ->add('catId', EntityType::class,[
+            'label'=>'Category',
+            'required' => true,
+            // 'choices'=>array(
+            //     'C01'=>'Bamboo',
+            //     'C02'=> 'da'
+            // ),
+             'class'=>"App\Entity\Category",
+             'choice_label'=>'catId',
+            'multiple'=> true,
+            'expanded'=>false   
+        ])
             ->add('name', TextType::class,
             [
                 'label' => 'Name Product'

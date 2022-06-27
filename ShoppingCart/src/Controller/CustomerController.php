@@ -3,12 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Customer;
+use App\Form\CustomerType;
 use App\Repository\ProductRepository;
 use App\Repository\CustomerRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 
 
 #[Route('/customer')]
@@ -57,7 +58,7 @@ class CustomerController extends AbstractController
         return $this->redirectToRoute('view_list_product');
     }
 
-    #[Route('/add/{id}', name: 'add_product')]
+    #[Route('/add', name: 'add_customer')]
     public function customerAdd(CustomerRepository $customerRepository, Request $request)
     {
         $customer = new Customer;

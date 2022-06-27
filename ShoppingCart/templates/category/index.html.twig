@@ -1,27 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategoryController!{% endblock %}
+{% block title %}Hello CategoryController!
+{% endblock %}
 
 {% block body %}
 
-{# Display a list of all category in a table #}
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>CatID</th>
-            <th>Name</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for category in categories %}
-        <tr>
-            <td>{{ category.id }}</td>
-            <td>{{ category.catID }}</td>
-            <td>{{ category.name }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+		<h1>category List</h1>
+		<a href="{{ path('add_category')}}">Add new category</a>
+		
+	{# Display a list of all category in a table #}
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>CatID</th>
+				<th>Name</th>
+                <th>Description</th>
+				<th>menu</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for category in categories %}
+				<tr>
+					<td>{{ category.id }}</td>
+					<td>{{ category.catID }}</td>
+					<td>{{ category.name }}</td>
+                    <td>{{category.description}}</td>
+					<td>
+
+						<a href="{{ path('edit_category', {'id': category.id })}}">Edit</a>
+						<a href="{{ path('delete_category', {'id': category.id })}}" onclick="return confirm('Do you want to delete this category ?');">Delete</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 
 {% endblock %}

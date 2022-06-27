@@ -1,32 +1,39 @@
-{% extends "base.html.twig" %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CartController!
+{% endblock %}
 
 {% block body %}
-<div>
-<table>
-   <tr>
-      <th class="text text-bg-success" colspan="2">Customer Detail</th>
-   </tr>
-   <tr>
-      <th>Customer Name</th>
-      <td>{{ customer.name }}</td>
-   </tr>
-   <tr>
-      <th>Class Quantity</th>
-      <td>{{ class.quantity }}</td>
-   </tr>
-   <tr>
-      <th>Course List</th>
-      <td>
-         {% if class.courses != null %}
-            {% for course in class.courses %}
-            <a href="{{ path('view_course_by_id', {'id':course.id })}}">
-                  {{ course.name }}
-            </a>   
-            <br>
-         {% endfor %}
-         {% endif %}     
-      </td>
-   </tr>
-</table>
-</div>
+
+		<h1>Customer List</h1>
+		
+		<a href="{{ path('add_customer')}}">Add new customer</a>
+	{# Display a list of all category in a table #}
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Email</th>
+				<th>Name</th>
+				<th>Phone Number</th>
+				<th>menu</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for customer in customers %}
+				<tr>
+					<td>{{ customer.id }}</td>
+					<td>{{ customer.email }}</td>
+					<td>{{ customer.phoneNumber }}</td>
+					
+					<td>
+						<a href="{{ path('view_customer_by_id', {'id': customer.id })}}">Detail</a>
+						<a href="{{ path('edit_customer', {'id': customer.id })}}">Edit</a>
+						<a href="{{ path('delete_customer', {'id': customer.id })}}" onclick="return confirm('Do you want to delete this customer ?');">Delete</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
 {% endblock %}
