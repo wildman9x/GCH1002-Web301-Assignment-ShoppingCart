@@ -145,10 +145,10 @@ class ProductController extends AbstractController
     #[Route('/searchByName', name: 'search_product_name')]
     public function SearchProductName(ProductRepository $productRepository, Request $request)
     {
-        $name = $request->get(' keyword ');
+        $name = $request->get('keyword');
         $product = $productRepository->searchByName($name);
         return $this->render('product/index.html.twig', [
-            'prodcuts' => $product
+            'products' => $product
         ]);;
     }
 }

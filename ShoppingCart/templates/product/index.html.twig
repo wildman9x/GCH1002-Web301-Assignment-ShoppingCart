@@ -4,6 +4,7 @@
 		<form  action="{{ path('search_product_name') }}" method="post">
 			<input  type="search" name="keyword" required placeholder="Search by product name">
 		</form>
+		<button><a href="{{path('view_list_product')}}">refresh</a></button>
 		<div>
 			<select onchange="window.location.href=this.value">
 				<option>Sort by</option>
