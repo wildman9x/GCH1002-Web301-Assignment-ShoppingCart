@@ -12,12 +12,14 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
+
 class CustomerType extends Abstracttype
 {
   public function buildForm(FormBuilderInterface $builder, array $options): void
   {
-
+    // add email into the User class
     $builder
+
     //   ->add('email', EntityType::class ,
     // [
     //   'label' => 'Email',
@@ -37,6 +39,7 @@ class CustomerType extends Abstracttype
     ])
       ->add('name', TextType::class , [
       'label' => 'Name Custommer'
+
     ])
 
       ->add(
