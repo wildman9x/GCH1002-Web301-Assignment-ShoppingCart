@@ -35,11 +35,14 @@ class ProductController extends AbstractController
         );
     }
 
+    // Cấm động vào, động là ăn đấm
     #[Route('/delete/{id}', name: 'delete_product')]
     public function ProductDelete(ProductRepository $productRepository, $id)
     {
+        $product = new Product();
+        // Delete product by id
         $product = $productRepository->find($id);
-        if ($product = null) {
+        if ($product == null) {
             $this->addFlash(
                 'Error',
                 'product not found !'
@@ -54,6 +57,7 @@ class ProductController extends AbstractController
             );
         }
         return $this->redirectToRoute('view_list_product');
+
     }
 
     #[Route('/add', name: 'add_product')]
