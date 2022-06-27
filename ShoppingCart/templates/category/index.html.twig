@@ -3,7 +3,9 @@
 {% block title %}Hello CategoryController!
 {% endblock %}
 
+{% extends "base.html.twig" %}
 {% block body %}
+<<<<<<< Updated upstream
 
 		<h1>category List</h1>
 		<a href="{{ path('add_category')}}">Add new category</a>
@@ -36,4 +38,36 @@
 		</tbody>
 	</table>
 
+=======
+		<h1>category List</h1>
+		<a href="{{ path('add_category')}}">Add new category</a>
+		<table>
+			<thead>
+				<tr>
+					<th>Cate Id</th>
+					<th>cate Name</th>
+					<th>Cate discription</th>
+					
+					<th>Menu</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for product in products %}
+					<tr>
+						<td>{{ category.id }}
+						</td>
+						<td>{{ category.name }}</td>
+						<td>{{ category.discription }}</td>
+						
+						<td>
+							<a href="{{ path('view_product_by_id', {'id': product.id })}}">Detail</a>
+							<a href="{{ path('edit_product', {'id': product.id })}}">Edit</a>
+							<a href="{{ path('delete_product', {'id': product.id })}}" onclick="return confirm('Do you want to delete this product ?');">Delete</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+>>>>>>> Stashed changes
 {% endblock %}
