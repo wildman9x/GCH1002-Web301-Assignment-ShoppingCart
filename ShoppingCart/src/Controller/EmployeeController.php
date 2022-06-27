@@ -23,7 +23,7 @@ class EmployeeController extends AbstractController
         ]);
     }
 
-    
+
     #[Route('/detail/{id}', name: 'view_employee_by_id')]
     public function employeeDetail(EmployeeRepository $employeeRepository, $id)
     {
@@ -40,7 +40,7 @@ class EmployeeController extends AbstractController
     public function employeeDelete(EmployeeRepository $employeeRepository, $id)
     {
         $employee = $employeeRepository->find(id);
-        if ($employee == null) {
+        if ($employee = null) {
             $this->addFlash(
                 'Error',
                 'employee not found !'
@@ -58,12 +58,11 @@ class EmployeeController extends AbstractController
     }
 
     #[Route('/add', name: 'add_employee')]
-    public function employeeAdd(EmployeeRepository $employeeRepository, Request $request)
+    public function employeeAdd(Request $request)
     {
-        $employee = new Employee;
+        $employee = new Employee();
         $form = $this->createForm(EmployeeType::class, $employee);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($employee);
@@ -74,15 +73,17 @@ class EmployeeController extends AbstractController
             );
             return $this->redirectToRoute('view_list_employee');
         }
-              return $this->render('employee/add.html.twig',[
-                 'employeeForm'=>$form->createView()
-          ]);
+        return $this->render('employee/add.html.twig', [
+            'employeeForm' => $form->createView()
+        ]);
     }
+
+
     #[Route('/edit/{id}', name: 'edit_employee')]
-    public function customerEdit(EmployeeRepository $employeeRepository, $id,Request $request)
+    public function customerEdit(EmployeeRepository $employeeRepository, Request $request, $id)
     {
-        $employee = $employeeRepository->find($id);
-        if ($employee == null) {
+        $employee = $employeeRepository->find(id);
+        if ($employee = null) {
             $this->addFlash(
                 'Error',
                 'employee not found !'
@@ -101,21 +102,22 @@ class EmployeeController extends AbstractController
                 );
                 return $this->redirectToRoute('view_list_employee');
             }
-                 return $this->renderForm('employee/edit.html.twig',
-             [
-                'employeeForm'=> $form
-             ]);
-
+            return $this->renderForm(
+                'employee/edit.html.twig',
+                [
+                    'employeeForm' => $form
+                ]
+            );
         }
     }
 
-     #[Route('/searchByName', name: 'search_employee_name')]
-     public function SearchEmployeeName(EmployeeRepository $employeeRepository, Request $request)
-     {
-         $name = $request->get('keyword');
-         $employee = $employeeRepository->searchByName($name);
-         return $this->render('employee/index.html.twig', [
+    #[Route('/searchByName', name: 'search_employee_name')]
+    public function SearchEmployeeName(EmployeeRepository $employeeRepository, Request $request)
+    {
+        $name = $request->get('% keyword %');
+        $employee = $employeeRepository->searchByName($name);
+        return $this->render('employee/index.html.twig', [
             'employees' => $employee
-         ]);;
+        ]);;
     }
 }
