@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -10,7 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Security\Core\User\User;
+
 
 
 class CustomerType extends Abstracttype
@@ -22,7 +23,9 @@ class CustomerType extends Abstracttype
     ->add('email', EntityType::class,
     [
       'label'=>'Email',
-      
+
+      'class'=>User::class,
+
 
     ])
       ->add('name', TextType::class, [
