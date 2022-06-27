@@ -4,7 +4,13 @@ namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Security\Core\User\User;
 
 class CustomerType extends Abstracttype
 {
@@ -12,18 +18,25 @@ class CustomerType extends Abstracttype
   {
 
     $builder
-      ->add('Name', TextType::class, ['label' => 'Name Custommer'])
+    ->add('email', EntityType::class,
+    [
+      'label'=>'Email',
+      
+    ])
+      ->add('name', TextType::class, [
+        'label' => 'Name Custommer'
+        ])
 
       ->add(
-        'Phone Number',
-        IntergerType::class,
+        'phoneNumber', IntegerType::class,
         [
           'label' => 'Phone Number',
-          'attr' =>
-          [
-            'min' => 10,
-            'max' => 10
-          ]
+          'constraints'=>[
+            new Length([
+              'max'=>10
+            ])
+            ],
+          
         ]
       )
 

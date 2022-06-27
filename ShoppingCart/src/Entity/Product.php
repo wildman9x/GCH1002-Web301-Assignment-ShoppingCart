@@ -140,7 +140,7 @@ class Product
     }
 
     /**
-     * @return Collection<int, OrderInfo>
+     * @return Collection<int,OrderInfo>
      */
     public function getOrderInfos(): Collection
     {

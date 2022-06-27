@@ -2,7 +2,7 @@
 
 {% block body %}
 <div>
-<table>
+<table class "table">
    <tr>
       <th>Product Detail</th>
    </tr>
@@ -19,21 +19,12 @@
       <td>{{ product.info }}</td>
    </tr>
    <tr>
-      <th>Product category</th>
-      <td>{{ product.category.id }}</td>
+      <th>Product category ID</th>
+      <td>{{ product.catID.id }}</td>
    </tr>
    <tr>
-      <th>category List</th>
-      <td>
-         {% if product.category != null %}
-            {% for category in product.categorys %}
-            <a href="{{ path('view_category_by_id', {'id':category.id })}}">
-                  {{ category.name }}
-            </a>   
-            <br>
-         {% endfor %}
-         {% endif %}     
-      </td>
+      <th>Category</th>
+      <td>{{ product.catID.name }}</td>
    </tr>
 </table>
 </div>

@@ -30,16 +30,19 @@ class ProductController extends AbstractController
         return $this->render(
             "product/detail.html.twig",
             [
-                'products' => $product
+                'product' => $product
             ]
         );
     }
 
+    // Cấm động vào, động là ăn đấm
     #[Route('/delete/{id}', name: 'delete_product')]
     public function ProductDelete(ProductRepository $productRepository, $id)
     {
+        $product = new Product();
+        // Delete product by id
         $product = $productRepository->find($id);
-        if ($product = null) {
+        if ($product == null) {
             $this->addFlash(
                 'Error',
                 'product not found !'
@@ -54,6 +57,7 @@ class ProductController extends AbstractController
             );
         }
         return $this->redirectToRoute('view_list_product');
+
     }
 
     #[Route('/add', name: 'add_product')]
@@ -77,11 +81,13 @@ class ProductController extends AbstractController
             'productForm' => $form->createView()
         ]);
     }
+
+    // Động vào cái này ăn đấm
     #[Route('/edit/{id}', name: 'edit_product')]
     public function ProductEdit(ProductRepository $productRepository, $id, Request $request)
     {
         $product = $productRepository->find($id);
-        if ($product = null) {
+        if ($product == null) {
             $this->addFlash(
                 'Error',
                 'product not found !'
@@ -95,17 +101,14 @@ class ProductController extends AbstractController
                 $manager->persist($product);
                 $manager->flush();
                 $this->addFlash(
-                    'success',
+                    'Success',
                     'Edit product success !'
                 );
                 return $this->redirectToRoute('view_list_product');
             }
-            return $this->renderForm(
-                'product/edit.html.twig',
-                [
-                    'productForm' => $form
-                ]
-            );
+            return $this->render('product/edit.html.twig', [
+                'productForm' => $form->createView()
+            ]);
         }
     }
 
