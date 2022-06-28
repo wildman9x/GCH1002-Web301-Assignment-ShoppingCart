@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route('/category')]
 class CategoryController extends AbstractController
 {
+    
     #[Route('/', name: 'view_list_category')]
     public function CategoryIndex(CategoryRepository $categoryRepository)
     {

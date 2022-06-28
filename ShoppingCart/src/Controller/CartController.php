@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route('/cart')]
 class CartController extends AbstractController
 {
+     
     #[Route('/', name: 'view_list_cart')]
     public function cartIndex(CartRepository $cartRepository)
     {
