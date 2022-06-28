@@ -55,6 +55,17 @@ class Cart
         return $this->productID;
     }
 
+    // find a product by id
+    public function getProductIDById(int $id): ?Product
+    {
+        foreach ($this->productID as $product) {
+            if ($product->getId() === $id) {
+                return $product;
+            }
+        }
+        return null;
+    }
+
     public function addProductID(Product $productID): self
     {
         if (!$this->productID->contains($productID)) {
@@ -74,6 +85,22 @@ class Cart
     public function getQuantity(): ?int
     {
         return $this->quantity;
+    }
+
+    // increase quantity by 1
+    public function addQuantity(): self
+    {
+        $this->quantity++;
+
+        return $this;
+    }
+
+    // decrease quantity by 1
+    public function removeQuantity(): self
+    {
+        $this->quantity--;
+
+        return $this;
     }
 
     public function setQuantity(int $quantity): self

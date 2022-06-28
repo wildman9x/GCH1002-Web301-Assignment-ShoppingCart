@@ -1,0 +1,97 @@
+{% extends "base.html.twig" %}
+
+{% block nav %}
+            <div class="sidebar">
+                <div class="side-nav-section">
+                    <div class="side-nav"><a data-bs-toggle="collapse" aria-expended="false" aria-controls="collapse-1" onclick= "location.href='#collapse-1'" role="button"><button class="sidebar-nav-title btn-custom button">Product</button></a>
+                        <div id="collapse-1" class="collapse">
+                            <ul class="list-unstyled">
+                                {# display all categories #}
+                                {% for category in categories %}
+                                    {# {{ path('category_show', { 'id': category.id }) }} #}
+                                    <li><a href="#">{{ category.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-nav-section">
+                    {# search field #}
+                    
+                        <form action="{{ path('product_search') }}" method="GET">
+                            <input type="text" name="search" placeholder="Search">
+                            {# <button type="submit" class="btn-custom button">Search</button> #}
+                        </form>
+                    
+                    <nav class="pages-nav side-nav-section">
+                        <ul class="list-unstyled pages-nav-items">
+                            <li><a href="{{path ('home')}}">Home</a></li>
+                            <li><a href="detail.html">Detail</a></li>
+                            <li><a href="category.html">Category</a></li>
+                            <li><a href="login.html">Login</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+{% endblock %}
+
+{% block body %}
+    <div class="content">
+                <div class="row">
+                    <div class="col">
+                        <form>
+                            <div class="col">
+                                <h1>Cart</h1>
+                                
+                                {# display all the product in the cart #}
+                                {% for product in products %}
+                                {# display if the product is in the cart #}
+                                {% if cart.getProductIDById(product.id)%}
+                                    <div class="row">
+                                        <div class="col">
+                                            <form>
+                                                <div class="container">
+                                                    <div class="row cart-row">
+                                                        <div class="col-md-3 d-xxl-flex justify-content-xxl-center align-items-xxl-center cart-column"><img class="cart-image" src="
+                                                            {# display the image of the product #}
+                                                            {% if product.getImages != null %}
+                                                                {{asset('images/product/'~product.getRandomImage().imageID)}} 
+                                                            {% else %}
+                                                                {{ asset('bundle/images/product2/img2pro2.jpeg') }}
+                                                            {% endif %}
+                                                        "></div>
+                                                        <div class="col-md-3 d-xxl-flex justify-content-xxl-start align-items-xxl-center">
+                                                            <h4>{{ product.name }}</h4>
+                                                        </div>
+                                                        <div class="col-md-3 d-xxl-flex justify-content-xxl-center align-items-xxl-center">
+                                                            <div class="row">
+                                                                <div class="col"><a class="button" href="#" style="border-radius: 10em;">+</a></div>
+                                                                <div class="col"><input class="form-control" value="{{cart.getQuantity()}}" type="text" style="border-radius: 10em;"></div>
+                                                                <div class="col"><a class="button" href="#" style="border-radius: 10em;">-</a></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 d-xxl-flex align-items-xxl-center" style="background: #212121;color: rgb(247,251,255);">
+                                                            <h1 style="border-color: rgb(255,255,255);">{{product.price}}</h1>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                {% endfor %}
+
+                                <div class="row">
+                                    <div class="col d-xxl-flex justify-content-xxl-end align-items-xxl-end">
+                                        <h5 style="background: #c9908c;padding: 1em;border: .15em solid #212121 ;">Subtotal:<span>$</span><span>{{subtotal}}</span></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col d-xxl-flex justify-content-end align-items-end align-content-end justify-content-xxl-end align-items-xxl-center"><button class="d-xxl-flex button" type="submit" style="margin-left: auto;margin-right: 0%;font-size: 2em;margin-top: 3%;">Checkout</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

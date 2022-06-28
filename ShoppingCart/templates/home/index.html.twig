@@ -2,7 +2,7 @@
 
 {% block title %}Homepage{% endblock %}
 
-{% block body %}
+{% block welcome %}
         <section class="welcome gradient home-welcome">
             <div class="welcome-messaging">
                 <h2>Hand-made</h2><a data-bss-hover-animate="pulse" class="button" style="width: 255px;" href="#">Shop with us</a>
@@ -11,4 +11,85 @@
             
             <div class="welcome-image"><img src="{{asset('images/product/'~random(images).imageID)}}"></div>
         </section>
+{% endblock %}
+
+{% block nav %}
+            <div class="sidebar">
+                <div class="side-nav-section">
+                    <div class="side-nav"><a data-bs-toggle="collapse" aria-expended="false" aria-controls="collapse-1" onclick= "location.href='#collapse-1'" role="button"><button class="sidebar-nav-title btn-custom button">Product</button></a>
+                        <div id="collapse-1" class="collapse">
+                            <ul class="list-unstyled">
+                                {# display all categories #}
+                                {% for category in categories %}
+                                    {# {{ path('category_show', { 'id': category.id }) }} #}
+                                    <li><a href="#">{{ category.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="side-nav-section">
+                    {# search field #}
+                    
+                        <form action="{{ path('product_search') }}" method="GET">
+                            <input type="text" name="search" placeholder="Search">
+                            {# <button type="submit" class="btn-custom button">Search</button> #}
+                        </form>
+                    
+                    <nav class="pages-nav side-nav-section">
+                        <ul class="list-unstyled pages-nav-items">
+                            <li><a href="{{path ('home')}}">Home</a></li>
+                            <li><a href="detail.html">Detail</a></li>
+                            <li><a href="category.html">Category</a></li>
+                            <li><a href="login.html">Login</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+{% endblock %}
+
+{% block body %}
+    <div class="content">
+                <div class="d-flex all-product-banner" style="background: linear-gradient(140deg, rgb(222, 199, 178) 20%, rgb(255, 169, 122) 70%);">
+                    <div class="banner-detail" style="padding: 7.5em;">
+                        <div class="tag"><span>All products</span></div>
+                        <div class="banner-text" style="padding-top: 0;margin-top: 0;">
+                            <h2>All of our products</h2>
+                        </div>
+                    </div>
+                    <div class="banner-image-container" style="height:auto">
+                        <div class="banner-images">
+                            <div class="banner-image"><img src="{{asset('images/product/'~random(images).imageID)}}" style="background: linear-gradient(140deg, rgb(222, 199, 178) 20%, rgb(255, 169, 122) 70%);     height: 100%;     width: 100%;"></div>
+                            <div class="banner-image"><img src="{{asset('images/product/'~random(images).imageID)}}" style="background: linear-gradient(140deg, rgb(222, 199, 178) 20%, rgb(255, 169, 122) 70%);     height: 100%;     width: 100%;"></div>
+                            <div class="banner-image"><img src="{{asset('images/product/'~random(images).imageID)}}" style="background: linear-gradient(140deg, rgb(222, 199, 178) 20%, rgb(255, 169, 122) 70%);     height: 100%;     width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-list" data-per-row="3">
+                    
+                    {# display every product in products, 3 products each row #}
+                    <div class="row">
+                    {% for product in products %}
+                        
+                            <div class="col-xxl-4"><a class="product-item rollover" href="{{path('product_detail', {'id': product.id })}}">
+                                    <div class="product-item-container">
+                                        <figure class="figure product-item-image-container"><img class="img-fluid figure-img product-image" src="{{asset('images/product/'~product.getRandomImage().imageID)}}">
+                                            <div class="product-item-status"><span>Pre-order</span></div>
+                                        </figure>
+                                        <div class="product-item-info">
+                                            <div class="product-item-info-header">
+                                                <div class="product-item-info-name"><span>{{product.name}}</span></div>
+                                                <div class="product-item-price"><span class="currency-sign">$</span><span>{{product.price}}</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a></div>
+                            {# {% endfor %} #}
+                        
+                    {% endfor %}
+                    </div>
+
+                    
+                </div>
+    </div>
 {% endblock %}
