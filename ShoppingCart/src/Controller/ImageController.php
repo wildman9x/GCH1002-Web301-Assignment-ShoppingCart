@@ -7,13 +7,16 @@ use App\Form\ImageType;
 use App\Repository\ImageRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 /**
-     * @Security("has_role('ROLE_ADMIN') or has_role('ROLE_STAFF') ")
+     * @IsGranted("ROLE_ADMIN")
      */
+    #[Route('/admin')]
 class ImageController extends AbstractController
 {
     #[Route('/image', name: 'image_index')]

@@ -6,14 +6,16 @@ use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 /**
-     * @Security("has_role('ROLE_ADMIN') or has_role('ROLE_STAFF') ")
+     * @IsGranted("ROLE_ADMIN")
      */
 // route to homepage
-#[Route('/product')]
+#[Route('/admin/product')]
 class ProductController extends AbstractController
 {
     #[Route('/', name: 'view_list_product')]
