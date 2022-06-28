@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div>
+<table class "table">
+   <tr>
+      <th>Cart Detail</th>
+   </tr>
+   <tr>
+      <th>Email</th>
+      <td>{{ cart.email.email }}</td>
+   </tr>
+   </table>
+   <table class = "table table-striped">
+			<thead>
+				<tr>
+					<th>Product Id</th>
+					<th>Product Name</th>
+					<th>Product Price</th>
+					<th>Product Infomation</th>
+					<th>Product category</th>
+					<th>Menu</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for product in cart.email %}
+					<tr>
+						<td>{{ product.id }}
+						</td>
+						<td>{{ product.name }}</td>
+						<td>{{ product.price }}</td>
+						<td>{{ product.info }}</td>
+						{# get category id from category entity #}
+						<td>{{ product.catID.catId }}</td>
+						<td>
+							<a href="{{ path('view_product_by_id', {'id': product.id })}}">Detail</a>
+							<a href="{{ path('edit_product', {'id': product.id })}}">Edit</a>
+							<a href="{{ path('delete_product', {'id': product.id })}}" onclick="return confirm('Do you want to delete this product ?');">Delete</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+</div>
+{% endblock %}

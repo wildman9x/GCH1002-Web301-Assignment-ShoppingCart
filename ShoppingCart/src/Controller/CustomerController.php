@@ -64,8 +64,9 @@ class CustomerController extends AbstractController
         $customer = new Customer;
         $form = $this->createForm(CustomerType::class, $customer);
         $form->handleRequest($request);
-
+    
         if ($form->isSubmitted() && $form->isValid()) {
+            
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($customer);
             $manager->flush();
