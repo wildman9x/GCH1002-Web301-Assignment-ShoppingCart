@@ -34,7 +34,7 @@ class EmployeeController extends AbstractController
         return $this->render(
             "employee/detail.html.twig",
             [
-                'employees' => $employee
+                'employee' => $employee
             ]
         );
     }
@@ -42,8 +42,8 @@ class EmployeeController extends AbstractController
     #[Route('/delete/{id}', name: 'delete_employee')]
     public function employeeDelete(EmployeeRepository $employeeRepository, $id)
     {
-        $employee = $employeeRepository->find(id);
-        if ($employee = null) {
+        $employee = $employeeRepository->find($id);
+        if ($employee == null) {
             $this->addFlash(
                 'Error',
                 'employee not found !'
@@ -85,8 +85,8 @@ class EmployeeController extends AbstractController
     #[Route('/edit/{id}', name: 'edit_employee')]
     public function customerEdit(EmployeeRepository $employeeRepository, Request $request, $id)
     {
-        $employee = $employeeRepository->find(id);
-        if ($employee = null) {
+        $employee = $employeeRepository->find($id);
+        if ($employee == null) {
             $this->addFlash(
                 'Error',
                 'employee not found !'
