@@ -7,6 +7,11 @@
   position: relative;
 }
 
+body{
+  font-family: 'Lexend Exa', sans-serif;
+  line-height: 1.5em;
+}
+
 .welcome.gradient.home-welcome {
   border: solid 5px #212121;
   height: 100%;
@@ -88,7 +93,7 @@ h2 {
 }
 
 .diagonal-line {
-  background-image: url(../../assets/img/diagonal-line.svg);
+  background-image: url(https://raw.githubusercontent.com/wildman9x/GCH1002-Web301-Assignment-ShoppingCart/DucAnh/ShoppingCart/public/img/diagonal-line.svg);
 }
 
 .diagonal-line.pattern {
