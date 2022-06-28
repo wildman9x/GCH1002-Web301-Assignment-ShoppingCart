@@ -2,18 +2,20 @@
 
 namespace App\Controller;
 
+use App\Entity\Cart;
 use App\Entity\Customer;
 use App\Form\CustomerType;
 use App\Repository\ProductRepository;
 use App\Repository\CustomerRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-/**
-     * @Security("has_role('ROLE_ADMIN') or has_role('ROLE_STAFF') ")
-     */
+
+# @Security("has_role('ROLE_ADMIN') or has_role('ROLE_STAFF') ")
+
 #[Route('/customer')]
 class CustomerController extends AbstractController
 {
@@ -71,6 +73,12 @@ class CustomerController extends AbstractController
 
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($customer);
+            $manager->flush();
+            // create a cart for new customer
+            $cart = new Cart();
+            $cart->setEmail($customer);
+            $cart->setQuantity(0);
+            $manager->persist($cart);
             $manager->flush();
 
             $this->addFlash(

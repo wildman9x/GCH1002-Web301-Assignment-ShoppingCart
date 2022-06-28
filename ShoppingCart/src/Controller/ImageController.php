@@ -7,13 +7,14 @@ use App\Form\ImageType;
 use App\Repository\ImageRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-/**
-     * @Security("has_role('ROLE_ADMIN') or has_role('ROLE_STAFF') ")
-     */
+
+#@Security("has_role('ROLE_ADMIN') or has_role('ROLE_STAFF') ")
+
 class ImageController extends AbstractController
 {
     #[Route('/image', name: 'image_index')]
@@ -89,26 +90,26 @@ class ImageController extends AbstractController
     {
         $image = $managerRegistry->getRepository(Image::class)->find($id);
         if ($image == null) {
-            $this->addFlash("Error","Image not found !");
-            return $this->redirectToRoute("image_index");        
+            $this->addFlash("Error", "Image not found !");
+            return $this->redirectToRoute("image_index");
         } else {
-            $form = $this->createForm(ImageType::class,$image);
+            $form = $this->createForm(ImageType::class, $image);
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
                 //kiểm tra xem người dùng có muốn upload ảnh mới hay không
                 //nếu có thì thực hiện code upload ảnh
                 //nếu không thì bỏ qua
-                $imageFile = $form['image']->getData();
+                $imageFile = $form['imageID']->getData();
                 if ($imageFile != null) {
-                    
+
                     $imageData = $image->getImageID();
-                    
+
                     $imgName = uniqid(); //unique id
-                    
+
                     $imgExtension = $imageData->guessExtension();
-                    
+
                     $imageName = $imgName . "." . $imgExtension;
-                    
+
                     try {
                         $image->move(
                             $this->getParameter('product_image'),
@@ -117,19 +118,18 @@ class ImageController extends AbstractController
                     } catch (FileException $e) {
                         throwException($e);
                     }
-                    
+
                     $image->setImage($imageName);
                 }
                 $manager = $managerRegistry->getManager();
                 $manager->persist($image);
                 $manager->flush();
-                $this->addFlash("Success","Edit image succeed !");
+                $this->addFlash("Success", "Edit image succeed !");
                 return $this->redirectToRoute("image_index");
             }
-        return $this->render('image/edit.html.twig', [
-            'form' => $form->createView()
-        ]);
-    }
-    
+            return $this->render('image/edit.html.twig', [
+                'form' => $form->createView()
+            ]);
+        }
     }
 }
