@@ -78,7 +78,7 @@ class HomeController extends AbstractController
         $image = $imageRepository->findAll();
         $user = $this->getUser();
         if ($user == null) {
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('app_login');
         } else {
             $cart = $user->getCustomer()->getCart();
             if ($cart == null) {
