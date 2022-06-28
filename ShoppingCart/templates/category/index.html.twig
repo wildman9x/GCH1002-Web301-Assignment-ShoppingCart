@@ -6,9 +6,10 @@
 {# {% extends "base.html.twig" %} #}
 {% block body %}
 
-		<h1>category List</h1>
-		<a href="{{ path('add_category')}}">Add new category</a>
-		
+		<h1 class="text-center">category List</h1>
+		<div class="col-sm-3">
+		<a type="button" class="btn btn-success" href="{{ path('add_category')}}">Add new category</a>
+		</div>
 	{# Display a list of all category in a table #}
 	<table class="table table-striped">
 		<thead>

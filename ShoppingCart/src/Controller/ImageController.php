@@ -11,7 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-
+/**
+     * @Security("has_role('ROLE_ADMIN') or has_role('ROLE_STAFF') ")
+     */
 class ImageController extends AbstractController
 {
     #[Route('/image', name: 'image_index')]

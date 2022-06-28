@@ -11,7 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-
+/**
+     * @Security("has_role('ROLE_ADMIN') or has_role('ROLE_STAFF') ")
+     */
 #[Route('/customer')]
 class CustomerController extends AbstractController
 {
