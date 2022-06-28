@@ -7,13 +7,16 @@ use App\Form\ImageType;
 use App\Repository\ImageRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 /**
-     * @Security("has_role('ROLE_ADMIN') or has_role('ROLE_STAFF') ")
+     * @IsGranted("ROLE_ADMIN")
      */
+    #[Route('/admin')]
 class ImageController extends AbstractController
 {
     #[Route('/image', name: 'image_index')]
@@ -98,19 +101,13 @@ class ImageController extends AbstractController
                 //kiểm tra xem người dùng có muốn upload ảnh mới hay không
                 //nếu có thì thực hiện code upload ảnh
                 //nếu không thì bỏ qua
-                $imageFile = $form['image']->getData();
+                $imageFile = $form['imageID']->getData();
                 if ($imageFile != null) {
                     
                     $imageData = $image->getImageID();
-                    
-                    $imgName = uniqid(); //unique id
-                    
-                    $imgExtension = $imageData->guessExtension();
-                    
-                    $imageName = $imgName . "." . $imgExtension;
-                    
+                    $imageName = md5(uniqid()) . '.' . $imageFile->guessExtension();
                     try {
-                        $image->move(
+                        $imageFile->move(
                             $this->getParameter('product_image'),
                             $imageName
                         );
@@ -118,7 +115,7 @@ class ImageController extends AbstractController
                         throwException($e);
                     }
                     
-                    $image->setImage($imageName);
+                    $image->setImageID($imageName);
                 }
                 $manager = $managerRegistry->getManager();
                 $manager->persist($image);

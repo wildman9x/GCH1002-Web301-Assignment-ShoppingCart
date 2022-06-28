@@ -7,9 +7,12 @@ use App\Form\CartType;
 use App\Repository\CartRepository;
 use App\Repository\CustomerRepository;
 use Symfony\Component\BrowserKit\Request;
+
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 #[Route('/cart')]
 class CartController extends AbstractController
 {
