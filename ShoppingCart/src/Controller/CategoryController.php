@@ -9,9 +9,14 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+/**
+     * @Security("has_role('ROLE_ADMIN') or has_role('ROLE_STAFF') ")
+     */
 #[Route('/category')]
 class CategoryController extends AbstractController
 {
+    
     #[Route('/', name: 'view_list_category')]
     public function CategoryIndex(CategoryRepository $categoryRepository)
     {

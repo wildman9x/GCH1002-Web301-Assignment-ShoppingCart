@@ -1,20 +1,31 @@
 {% extends "base.html.twig" %}
 {% block body %}
 	<div>
+	<div class="row">
+	<div class="col-lg-5">
 		<form  action="{{ path('search_product_name') }}" method="post">
 			<input  type="search" name="keyword" required placeholder="Search by product name">
 		</form>
-		<button><a href="{{path('view_list_product')}}">refresh</a></button>
-		<div>
+		</div>
+		<br>
+		<div class="col-lg-2">
+		<button class="button"><a href="{{path('view_list_product')}}">refresh</a></button>
+		</div>
+		
+		<br></br>
+		<div class="">
 			<select onchange="window.location.href=this.value">
-				<option>Sort by</option>
+				<option class="">Sort by</option>
 				<option value="{{ path('sort_product_price_ascending')}}">Price Ascending</option>
 				<option value="{{ path('sort_product_price_descending')}}">Price Descending</option>
                 <option value="{{ path('sort_product_name_ascending')}}">Name Ascending</option>
 			</select>
 		</div>
-		<h1>Product List</h1>
-		<a href="{{ path('add_product')}}">Add new Product</a>
+		</div>
+		<br></br>
+		<h1 class="text-center">Product List</h1>
+		
+		<a class="btn btn-default btn-lg active"  href="{{ path('add_product')}}" role="button">Add new Product</a>
 		<table class = "table table-striped">
 			<thead>
 				<tr>
