@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Cart;
 use App\Entity\Customer;
 use App\Form\CustomerType;
 use App\Repository\ProductRepository;
@@ -13,10 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+
 /**
      * @IsGranted("ROLE_ADMIN")
      */
 #[Route('/admin/customer')]
+
 class CustomerController extends AbstractController
 {
 
@@ -73,6 +76,12 @@ class CustomerController extends AbstractController
 
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($customer);
+            $manager->flush();
+            // create a cart for new customer
+            $cart = new Cart();
+            $cart->setEmail($customer);
+            $cart->setQuantity(0);
+            $manager->persist($cart);
             $manager->flush();
 
             $this->addFlash(
