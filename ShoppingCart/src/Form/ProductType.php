@@ -31,9 +31,12 @@ class ProductType extends AbstractType
                 //     'C02'=> 'da'
                 // ),
                 'class' => Category::class,
-                'choice_label' => 'catID',
+                // combination of catID and name in choice label
+                'choice_label' => function ($cat) {
+                    return $cat->getCatID() . ' - ' . $cat->getName();
+                },
                 'multiple' => false,
-                'expanded' => true
+                'expanded' => false
             ])
             ->add(
                 'name',
