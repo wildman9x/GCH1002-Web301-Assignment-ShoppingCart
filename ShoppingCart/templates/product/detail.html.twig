@@ -26,6 +26,16 @@
       <th>Category</th>
       <td>{{ product.catID.name }}</td>
    </tr>
+   {# image, use getImages #}
+   <tr>
+      <th>Product Image</th>
+      <td>
+         {% for image in product.getImages %}
+            <img src="{{ asset('images/product/'~image.imageID) }}" alt="{{ image.id }}" width="auto" height="150em">
+         {% endfor %}
+      </td>
+   </tr>
+
 </table>
 </div>
 {% endblock %}
