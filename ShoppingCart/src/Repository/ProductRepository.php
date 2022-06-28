@@ -51,8 +51,7 @@ class ProductRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('product')
             ->orderBy('product.name', "ASC")
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
 
     /**
@@ -63,10 +62,9 @@ class ProductRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('product')
             ->orderBy('product.price', "ASC")
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-     /**
+    /**
      * @return Product[]
      */
     public function sortByPriceDescending()
@@ -74,23 +72,21 @@ class ProductRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('product')
             ->orderBy('product.price', "DESC")
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
 
     /**
-    * @return Product[]
-    */
+     * @return Product[]
+     */
     public function searchByName($name)
     {
         return $this->createQueryBuilder('product')
             ->andWhere('product.name LIKE :name')
-            ->setParameter('name', '%'. $name . '%')
+            ->setParameter('name', '%' . $name . '%')
             ->orderBy('product.id', 'DESC')
-            ->setMaxResults(5)
+            // ->setMaxResults(5)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
 
     // /**

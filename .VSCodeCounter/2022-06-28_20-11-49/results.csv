@@ -1,0 +1,114 @@
+"filename", "language", "PHP", "JavaScript", "XML", "YAML", "CSS", "JSON", "HTML (Twig)", "comment", "blank", "total"
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\composer.json", "JSON", 0, 0, 0, 0, 0, 104, 0, 0, 1, 105
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\composer.lock", "JSON", 0, 0, 0, 0, 0, 10047, 0, 0, 1, 10048
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\bundles.php", "PHP", 15, 0, 0, 0, 0, 0, 0, 0, 2, 17
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\packages\cache.yaml", "YAML", 0, 0, 0, 2, 0, 0, 0, 13, 5, 20
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\packages\debug.yaml", "YAML", 0, 0, 0, 3, 0, 0, 0, 2, 1, 6
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\packages\doctrine.yaml", "YAML", 0, 0, 0, 34, 0, 0, 0, 4, 5, 43
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\packages\doctrine_migrations.yaml", "YAML", 0, 0, 0, 4, 0, 0, 0, 2, 1, 7
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\packages\framework.yaml", "YAML", 0, 0, 0, 15, 0, 0, 0, 6, 4, 25
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\packages\mailer.yaml", "YAML", 0, 0, 0, 3, 0, 0, 0, 0, 1, 4
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\packages\monolog.yaml", "YAML", 0, 0, 0, 50, 0, 0, 0, 8, 4, 62
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\packages\notifier.yaml", "YAML", 0, 0, 0, 9, 0, 0, 0, 7, 1, 17
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\packages\routing.yaml", "YAML", 0, 0, 0, 7, 0, 0, 0, 3, 3, 13
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\packages\security.yaml", "YAML", 0, 0, 0, 34, 0, 0, 0, 15, 6, 55
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\packages\sensio_framework_extra.yaml", "YAML", 0, 0, 0, 3, 0, 0, 0, 0, 1, 4
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\packages\translation.yaml", "YAML", 0, 0, 0, 6, 0, 0, 0, 7, 1, 14
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\packages\twig.yaml", "YAML", 0, 0, 0, 5, 0, 0, 0, 0, 2, 7
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\packages\validator.yaml", "YAML", 0, 0, 0, 7, 0, 0, 0, 4, 3, 14
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\packages\web_profiler.yaml", "YAML", 0, 0, 0, 12, 0, 0, 0, 0, 4, 16
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\preload.php", "PHP", 4, 0, 0, 0, 0, 0, 0, 0, 2, 6
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\routes.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 3, 1, 4
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\routes\annotations.yaml", "YAML", 0, 0, 0, 6, 0, 0, 0, 0, 2, 8
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\routes\framework.yaml", "YAML", 0, 0, 0, 4, 0, 0, 0, 0, 1, 5
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\routes\web_profiler.yaml", "YAML", 0, 0, 0, 7, 0, 0, 0, 0, 2, 9
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\config\services.yaml", "YAML", 0, 0, 0, 12, 0, 0, 0, 9, 5, 26
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\docker-compose.override.yml", "YAML", 0, 0, 0, 8, 0, 0, 0, 4, 3, 15
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\docker-compose.yml", "YAML", 0, 0, 0, 12, 0, 0, 0, 7, 3, 22
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\migrations\Version20220620041016.php", "PHP", 54, 0, 0, 0, 0, 0, 0, 5, 7, 66
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\migrations\Version20220622031319.php", "PHP", 21, 0, 0, 0, 0, 0, 0, 5, 7, 33
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\migrations\Version20220627032345.php", "PHP", 20, 0, 0, 0, 0, 0, 0, 5, 7, 32
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\public\bootstrap\css\bootstrap.min.css", "CSS", 0, 0, 0, 0, 2, 0, 0, 4, 1, 7
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\public\bootstrap\js\bootstrap.min.js", "JavaScript", 0, 1, 0, 0, 0, 0, 0, 5, 0, 6
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\public\css\Carousel-Hero.css", "CSS", 0, 0, 0, 0, 28, 0, 0, 0, 7, 35
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\public\css\styles.css", "CSS", 0, 0, 0, 0, 719, 0, 0, 6, 97, 822
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\public\img\diagonal-line.svg", "XML", 0, 0, 1, 0, 0, 0, 0, 0, 0, 1
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\public\img\diagonal-line[1].svg", "XML", 0, 0, 1056, 0, 0, 0, 0, 0, 388, 1444
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\public\index.php", "PHP", 6, 0, 0, 0, 0, 0, 0, 0, 4, 10
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\public\js\bs-init.js", "JavaScript", 0, 14, 0, 0, 0, 0, 0, 0, 3, 17
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\public\js\script.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Controller\CartController.php", "PHP", 81, 0, 0, 0, 0, 0, 0, 29, 11, 121
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Controller\CategoryController.php", "PHP", 88, 0, 0, 0, 0, 0, 0, 0, 9, 97
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Controller\CustomerController.php", "PHP", 110, 0, 0, 0, 0, 0, 0, 0, 14, 124
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Controller\EmployeeController.php", "PHP", 112, 0, 0, 0, 0, 0, 0, 0, 12, 124
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Controller\HomeController.php", "PHP", 105, 0, 0, 0, 0, 0, 0, 18, 11, 134
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Controller\ImageController.php", "PHP", 115, 0, 0, 0, 0, 0, 0, 4, 15, 134
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Controller\OrderInfoController.php", "PHP", 92, 0, 0, 0, 0, 0, 0, 16, 11, 119
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Controller\ProductController.php", "PHP", 136, 0, 0, 0, 0, 0, 0, 4, 15, 155
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Controller\RegistrationController.php", "PHP", 41, 0, 0, 0, 0, 0, 0, 2, 8, 51
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Controller\SecurityController.php", "PHP", 57, 0, 0, 0, 0, 0, 0, 9, 14, 80
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\DataFixtures\AppFixtures.php", "PHP", 11, 0, 0, 0, 0, 0, 0, 2, 5, 18
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\DataFixtures\CategoryFixtures.php", "PHP", 23, 0, 0, 0, 0, 0, 0, 0, 4, 27
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\DataFixtures\CustomerFixtures.php", "PHP", 11, 0, 0, 0, 0, 0, 0, 0, 6, 17
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\DataFixtures\EmployeeFixtures.php", "PHP", 11, 0, 0, 0, 0, 0, 0, 2, 5, 18
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\DataFixtures\ImageFixtures.php", "PHP", 11, 0, 0, 0, 0, 0, 0, 2, 5, 18
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\DataFixtures\ProductFixtures.php", "PHP", 92, 0, 0, 0, 0, 0, 0, 0, 13, 105
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\DataFixtures\UserFixtures.php", "PHP", 16, 0, 0, 0, 0, 0, 0, 3, 5, 24
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Entity\Cart.php", "PHP", 63, 0, 0, 0, 0, 0, 0, 3, 20, 86
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Entity\Category.php", "PHP", 79, 0, 0, 0, 0, 0, 0, 4, 24, 107
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Entity\Customer.php", "PHP", 93, 0, 0, 0, 0, 0, 0, 5, 29, 127
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Entity\Employee.php", "PHP", 61, 0, 0, 0, 0, 0, 0, 0, 21, 82
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Entity\Image.php", "PHP", 40, 0, 0, 0, 0, 0, 0, 0, 15, 55
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Entity\OrderInfo.php", "PHP", 85, 0, 0, 0, 0, 0, 0, 3, 28, 116
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Entity\Product.php", "PHP", 155, 0, 0, 0, 0, 0, 0, 11, 46, 212
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Entity\User.php", "PHP", 102, 0, 0, 0, 0, 0, 0, 28, 34, 164
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Form\CartType.php", "PHP", 20, 0, 0, 0, 0, 0, 0, 1, 5, 26
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Form\CategoryType.php", "PHP", 34, 0, 0, 0, 0, 0, 0, 0, 5, 39
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Form\CustomerType.php", "PHP", 48, 0, 0, 0, 0, 0, 0, 2, 11, 61
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Form\EmployeeType.php", "PHP", 56, 0, 0, 0, 0, 0, 0, 1, 12, 69
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Form\ImageType.php", "PHP", 41, 0, 0, 0, 0, 0, 0, 4, 5, 50
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Form\OrderInforType.php", "PHP", 25, 0, 0, 0, 0, 0, 0, 1, 6, 32
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Form\ProductType.php", "PHP", 64, 0, 0, 0, 0, 0, 0, 14, 8, 86
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Form\RegistrationFormType.php", "PHP", 50, 0, 0, 0, 0, 0, 0, 3, 5, 58
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Form\UserType.php", "PHP", 54, 0, 0, 0, 0, 0, 0, 3, 6, 63
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Kernel.php", "PHP", 12, 0, 0, 0, 0, 0, 0, 23, 4, 39
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Repository\CartRepository.php", "PHP", 28, 0, 0, 0, 0, 0, 0, 43, 8, 79
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Repository\CategoryRepository.php", "PHP", 28, 0, 0, 0, 0, 0, 0, 43, 8, 79
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Repository\CustomerRepository.php", "PHP", 28, 0, 0, 0, 0, 0, 0, 44, 9, 81
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Repository\EmployeeRepository.php", "PHP", 39, 0, 0, 0, 0, 0, 0, 46, 8, 93
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Repository\ImageRepository.php", "PHP", 28, 0, 0, 0, 0, 0, 0, 51, 10, 89
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Repository\OrderInfoRepository.php", "PHP", 28, 0, 0, 0, 0, 0, 0, 43, 8, 79
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Repository\ProductRepository.php", "PHP", 58, 0, 0, 0, 0, 0, 0, 53, 10, 121
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Repository\UserRepository.php", "PHP", 40, 0, 0, 0, 0, 0, 0, 46, 10, 96
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Security\AccessDeniedHandler.php", "PHP", 21, 0, 0, 0, 0, 0, 0, 2, 3, 26
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\src\Security\UserAuthenticator.php", "PHP", 49, 0, 0, 0, 0, 0, 0, 0, 13, 62
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\base.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 31, 4, 6, 41
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\cart\detailSys.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 43, 1, 2, 46
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\cart\edit.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 8, 0, 1, 9
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\cart\index.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 33, 1, 6, 40
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\category\add.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 8, 0, 1, 9
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\category\edit.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 8, 0, 1, 9
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\category\index.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 32, 2, 7, 41
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\customer\add.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 8, 0, 1, 9
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\customer\detail.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 11, 3, 0, 14
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\customer\edit.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 8, 0, 1, 9
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\customer\index.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 33, 1, 6, 40
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\employee\add.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 8, 0, 1, 9
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\employee\detail.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 13, 3, 0, 16
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\employee\edit.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 8, 0, 1, 9
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\employee\index.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 39, 0, 1, 40
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\home\detail.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 71, 3, 5, 79
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\home\index.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 77, 6, 13, 96
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\image\add.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 18, 7, 3, 28
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\image\index.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 27, 2, 3, 32
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\order_info\index.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 16, 0, 5, 21
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\product\add.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 8, 0, 2, 10
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\product\detail.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 38, 1, 2, 41
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\product\edit.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 9, 0, 2, 11
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\product\index.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 48, 1, 1, 50
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\registration\register.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 13, 0, 5, 18
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\security\login.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 26, 10, 9, 45
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\user\add.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 6, 7, 3, 16
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\templates\user\index.html.twig", "HTML (Twig)", 0, 0, 0, 0, 0, 0, 34, 5, 3, 42
+"c:\Users\wildm\Desktop\Class\Greenwich\WEB301\Assignment\GCH1002-Web301-Assignment-ShoppingCart\ShoppingCart\tests\bootstrap.php", "PHP", 8, 0, 0, 0, 0, 0, 0, 0, 4, 12
+"Total", "-", 2669, 15, 1057, 243, 749, 10151, 682, 749, 1216, 17531

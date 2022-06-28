@@ -174,6 +174,14 @@ class Product
         return $this->images;
     }
 
+    // get random image
+    public function getRandomImage()
+    {
+        $images = $this->getImages();
+        $randomImage = $images[array_rand($images->toArray())];
+        return $randomImage;
+    }
+
     public function addImage(Image $image): self
     {
         if (!$this->images->contains($image)) {

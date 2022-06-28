@@ -68,21 +68,22 @@ class CustomerController extends AbstractController
         $customer = new Customer;
         $form = $this->createForm(CustomerType::class, $customer);
         $form->handleRequest($request);
-    
+
         if ($form->isSubmitted() && $form->isValid()) {
-            
+
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($customer);
             $manager->flush();
+
             $this->addFlash(
                 'Success',
                 'Add customer success !'
             );
             return $this->redirectToRoute('view_list_customer');
         }
-              return $this->render('customer/add.html.twig',[
-                 'customerForm'=>$form->createView()
-          ]);
+        return $this->render('customer/add.html.twig', [
+            'customerForm' => $form->createView()
+        ]);
     }
     #[Route('/edit/{id}', name: 'edit_customer')]
     public function customerEdit(CustomerRepository $customerRepository, $id, Request $request)
@@ -107,11 +108,12 @@ class CustomerController extends AbstractController
                 );
                 return $this->redirectToRoute('view_list_customer');
             }
-                 return $this->renderForm('customer/edit.html.twig',
-             [
-                 'customerForm'=> $form
-             ]);
-
+            return $this->renderForm(
+                'customer/edit.html.twig',
+                [
+                    'customerForm' => $form
+                ]
+            );
         }
     }
 
