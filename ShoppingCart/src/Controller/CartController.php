@@ -28,7 +28,7 @@ class CartController extends AbstractController
     {
         $cart = $cartRepository->find($id);
         return $this->render(
-            "cart/detail.html.twig",
+            "cart/detailSys.html.twig",
             [
                 'carts' => $cart
             ]

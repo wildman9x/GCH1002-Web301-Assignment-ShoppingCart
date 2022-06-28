@@ -64,6 +64,8 @@ class CustomerRepository extends ServiceEntityRepository
     }
     */
 
+    // Find duplicated email by taking in a Customer entity
+
     /*
     public function findOneBySomeField($value): ?Customer
     {
