@@ -46,6 +46,20 @@ class EmployeeRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
+     /**
+    * @return Employee[]
+    */
+    public function searchByName($name)
+    {
+        return $this->createQueryBuilder('employee')
+            ->andWhere('product.name LIKE :name')
+            ->setParameter('name', '%'. $name . '%')
+            ->orderBy('employee.id', 'DESC')
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     // /**
     //  * @return Employee[] Returns an array of Employee objects
