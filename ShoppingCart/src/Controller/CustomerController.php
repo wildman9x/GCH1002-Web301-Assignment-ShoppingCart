@@ -30,13 +30,13 @@ class CustomerController extends AbstractController
     }
 
     #[Route('/detail/{id}', name: 'view_customer_by_id')]
-    public function customertDetail(CustomerRepository $customerRepository, $id)
+    public function customerDetail(CustomerRepository $customerRepository, $id)
     {
         $customer = $customerRepository->find($id);
         return $this->render(
             "customer/detail.html.twig",
             [
-                'customers' => $customer
+                'customer' => $customer
             ]
         );
     }
@@ -59,7 +59,7 @@ class CustomerController extends AbstractController
                 'Delete customer success !'
             );
         }
-        return $this->redirectToRoute('view_list_product');
+        return $this->redirectToRoute('view_list_customer');
     }
 
     #[Route('/add', name: 'add_customer')]

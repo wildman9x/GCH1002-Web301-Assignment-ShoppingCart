@@ -36,7 +36,7 @@ class ImageType extends AbstractType
                 'multiple' => false,
                 'expanded' => false
             ])
-            ->add('save', SubmitType::class);
+           
         ;
     }
 

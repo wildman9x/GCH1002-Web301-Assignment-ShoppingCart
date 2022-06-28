@@ -101,19 +101,13 @@ class ImageController extends AbstractController
                 //kiểm tra xem người dùng có muốn upload ảnh mới hay không
                 //nếu có thì thực hiện code upload ảnh
                 //nếu không thì bỏ qua
-                $imageFile = $form['image']->getData();
+                $imageFile = $form['imageID']->getData();
                 if ($imageFile != null) {
                     
                     $imageData = $image->getImageID();
-                    
-                    $imgName = uniqid(); //unique id
-                    
-                    $imgExtension = $imageData->guessExtension();
-                    
-                    $imageName = $imgName . "." . $imgExtension;
-                    
+                    $imageName = md5(uniqid()) . '.' . $imageFile->guessExtension();
                     try {
-                        $image->move(
+                        $imageFile->move(
                             $this->getParameter('product_image'),
                             $imageName
                         );
@@ -121,7 +115,7 @@ class ImageController extends AbstractController
                         throwException($e);
                     }
                     
-                    $image->setImage($imageName);
+                    $image->setImageID($imageName);
                 }
                 $manager = $managerRegistry->getManager();
                 $manager->persist($image);
