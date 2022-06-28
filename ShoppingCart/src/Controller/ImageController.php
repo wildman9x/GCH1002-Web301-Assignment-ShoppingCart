@@ -13,10 +13,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+
 /**
      * @IsGranted("ROLE_ADMIN")
      */
     #[Route('/admin')]
+
 class ImageController extends AbstractController
 {
     #[Route('/image', name: 'image_index')]
@@ -92,10 +94,10 @@ class ImageController extends AbstractController
     {
         $image = $managerRegistry->getRepository(Image::class)->find($id);
         if ($image == null) {
-            $this->addFlash("Error","Image not found !");
-            return $this->redirectToRoute("image_index");        
+            $this->addFlash("Error", "Image not found !");
+            return $this->redirectToRoute("image_index");
         } else {
-            $form = $this->createForm(ImageType::class,$image);
+            $form = $this->createForm(ImageType::class, $image);
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
                 //kiểm tra xem người dùng có muốn upload ảnh mới hay không
@@ -103,9 +105,11 @@ class ImageController extends AbstractController
                 //nếu không thì bỏ qua
                 $imageFile = $form['imageID']->getData();
                 if ($imageFile != null) {
-                    
+
                     $imageData = $image->getImageID();
+
                     $imageName = md5(uniqid()) . '.' . $imageFile->guessExtension();
+
                     try {
                         $imageFile->move(
                             $this->getParameter('product_image'),
@@ -114,19 +118,20 @@ class ImageController extends AbstractController
                     } catch (FileException $e) {
                         throwException($e);
                     }
+
                     
                     $image->setImageID($imageName);
+
                 }
                 $manager = $managerRegistry->getManager();
                 $manager->persist($image);
                 $manager->flush();
-                $this->addFlash("Success","Edit image succeed !");
+                $this->addFlash("Success", "Edit image succeed !");
                 return $this->redirectToRoute("image_index");
             }
-        return $this->render('image/edit.html.twig', [
-            'form' => $form->createView()
-        ]);
-    }
-    
+            return $this->render('image/edit.html.twig', [
+                'form' => $form->createView()
+            ]);
+        }
     }
 }
