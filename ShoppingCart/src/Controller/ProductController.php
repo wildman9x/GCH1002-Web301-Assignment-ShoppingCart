@@ -9,7 +9,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+/**
+     * @Security("has_role('ROLE_ADMIN') or has_role('ROLE_STAFF') ")
+     */
 // route to homepage
 #[Route('/product')]
 class ProductController extends AbstractController

@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
-     * @IsGranted("ROLE_ADMIN")
+     * @Security("has_role('ROLE_ADMIN') or has_role('ROLE_STAFF') ")
      */
 #[Route('/customer')]
 class CustomerController extends AbstractController
