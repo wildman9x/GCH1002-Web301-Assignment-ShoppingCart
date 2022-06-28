@@ -7,13 +7,16 @@ use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Request;
 
+
 use Symfony\Component\Routing\Annotation\Route;
+
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
-     * @Security("has_role('ROLE_ADMIN') or has_role('ROLE_STAFF') ")
+     * @IsGranted("ROLE_ADMIN")
      */
-#[Route('/category')]
+#[Route('/admin/category')]
 class CategoryController extends AbstractController
 {
     

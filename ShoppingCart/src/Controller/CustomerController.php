@@ -11,12 +11,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
-# @Security("has_role('ROLE_ADMIN') or has_role('ROLE_STAFF') ")
+/**
+     * @IsGranted("ROLE_ADMIN")
+     */
+#[Route('/admin/customer')]
 
-#[Route('/customer')]
 class CustomerController extends AbstractController
 {
 
@@ -30,13 +33,13 @@ class CustomerController extends AbstractController
     }
 
     #[Route('/detail/{id}', name: 'view_customer_by_id')]
-    public function customertDetail(CustomerRepository $customerRepository, $id)
+    public function customerDetail(CustomerRepository $customerRepository, $id)
     {
         $customer = $customerRepository->find($id);
         return $this->render(
             "customer/detail.html.twig",
             [
-                'customers' => $customer
+                'customer' => $customer
             ]
         );
     }
@@ -59,7 +62,7 @@ class CustomerController extends AbstractController
                 'Delete customer success !'
             );
         }
-        return $this->redirectToRoute('view_list_product');
+        return $this->redirectToRoute('view_list_customer');
     }
 
     #[Route('/add', name: 'add_customer')]

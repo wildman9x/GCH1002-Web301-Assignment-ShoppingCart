@@ -6,7 +6,7 @@
 {% block body %}
 
 		<h1>Cart List</h1>
-		<a href="">Add new cart</a>
+		<a href="{{path('home')}}">Add new cart</a>
 		
 	{# Display a list of all category in a table #}
 	<table class="table table-striped">
@@ -27,9 +27,11 @@
 					<td>{{ cart.productID }}</td>
 					<td>{{ cart.quantity }}</td>
 					<td>
+					
 						<a href="{{ path('view_cart_by_id', {'id': cart.id })}}">Detail</a>
 						<a href="{{ path('edit_cart', {'id': cart.id })}}">Edit</a>
 						<a href="{{ path('delete_cart', {'id': cart.id })}}" onclick="return confirm('Do you want to delete this cart ?');">Delete</a>
+					
 					</td>
 				</tr>
 			{% endfor %}
