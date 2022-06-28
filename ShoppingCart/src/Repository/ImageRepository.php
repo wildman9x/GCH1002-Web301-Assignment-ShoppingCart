@@ -50,19 +50,29 @@ class ImageRepository extends ServiceEntityRepository
     // /**
     //  * @return Image[] Returns an array of Image objects
     //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('i')
-            ->andWhere('i.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('i.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+    // return one random image from the database
+    // public function getRandomImage()
+    // {
+    //     $query = $this->createQueryBuilder('i')
+    //         ->orderBy('RAND()')
+    //         ->setMaxResults(1)
+    //         ->getQuery();
+    //     return $query->getOneOrNullResult();
+    // }
+
+    // // /**
+    // //  * @return Image[] Returns an array of Image objects
+    // //  */
+    // // get 3 random images from the database
+    // public function getThreeRandomImages()
+    // {
+    //     $query = $this->createQueryBuilder('i')
+    //         ->orderBy('RAND()')
+    //         ->setMaxResults(3)
+    //         ->getQuery();
+    //     return $query->getResult();
+    // }
+
 
     /*
     public function findOneBySomeField($value): ?Image

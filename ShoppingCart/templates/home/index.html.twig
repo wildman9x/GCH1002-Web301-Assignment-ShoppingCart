@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block body %}
+        <section class="welcome gradient home-welcome">
+            <div class="welcome-messaging">
+                <h2>Hand-made</h2><a data-bss-hover-animate="pulse" class="button" style="width: 255px;" href="#">Shop with us</a>
+            </div>
+            <div class="diagonal-line pattern"><svg width='4' height='4' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'><g fill='##212121' fill-opacity='0.7' fill-rule='evenodd'><path d='M5 0h1L0 6V5zM6 5v1H5z'/></g></svg> </div>
+            
+            <div class="welcome-image"><img src="{{asset('images/product/'~random(images).imageID)}}"></div>
+        </section>
+{% endblock %}
