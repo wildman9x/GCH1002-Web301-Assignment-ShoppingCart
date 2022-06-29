@@ -38,10 +38,21 @@
                     
                     <nav class="pages-nav side-nav-section">
                         <ul class="list-unstyled pages-nav-items">
+                        <option selected disabled>Customer</option>
+                            <li><a href="{{path('app_login')}}">Login</a></li>
                             <li><a href="{{path ('home')}}">Home</a></li>
-                            <li><a href="detail.html">Detail</a></li>
-                            <li><a href="category.html">Category</a></li>
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="{{path ('cart')}}">Cart</a></li>
+                            {% if is_granted('ROLE_ADMIN') %}
+                            <div class="">
+                            <option selected disabled>Admin</option>
+                            <li><a href="{{path ('view_list_category')}}">Category</a></li>
+                            <li><a href="{{path ('view_list_product')}}">Product update</a></li>
+                            <li><a href="{{path ('view_list_customer')}}">Customer update</a></li>
+                            <li><a href="{{path ('view_list_employee')}}">Employee update</a></li>
+                            <li><a href="{{path ('image_index')}}">Image update</a></li>
+                            <li><a href="{{path ('user_index')}}">User update</a></li>
+                            </div>
+                            {% endif %}
                         </ul>
                     </nav>
                 </div>

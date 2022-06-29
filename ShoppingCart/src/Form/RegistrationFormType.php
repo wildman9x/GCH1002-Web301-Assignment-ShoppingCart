@@ -44,7 +44,7 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('save', SubmitType::class);
+            
         ;
     }
 
