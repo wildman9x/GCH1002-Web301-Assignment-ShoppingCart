@@ -142,4 +142,53 @@ class HomeController extends AbstractController
             ]);
         }
     }
+
+    // increase quantity by one ưhen the plus button is clicked
+    #[Route('/product/increase/{id}', name: 'product_increase_quantity')]
+    public function productIncreaseQuantity(ProductRepository $productRepository, CategoryRepository $categoryRepository, ImageRepository $imageRepository, Request $request, $id)
+    {
+        
+        $user = $this->getUser();
+        if ($user == null) {
+            return $this->redirectToRoute('login');
+        } else {
+            $cart = $user->getCustomer()->getCart();
+            $product = $productRepository->find($id);
+            $cart->addProductID($product);
+            $cart->addQuantity();
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($cart);
+            $manager->flush();
+            return $this->redirectToRoute('cart');
+        }
+    }
+    
+
+    // decrease quantity by one when the minus button is clicked, if the quantity is 1, remove the item from cart
+    #[Route('/product/decrease/{id}', name: 'product_decrease_quantity')]
+    public function productDecreaseQuantity(ProductRepository $productRepository, CategoryRepository $categoryRepository, ImageRepository $imageRepository, Request $request, $id)
+    {
+        $user = $this->getUser();
+        if ($user == null) {
+            return $this->redirectToRoute('login');
+        } else {
+            $cart = $user->getCustomer()->getCart();
+            $product = $productRepository->find($id);
+            $cart->addProductID($product);
+            $cart->removeQuantity();
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($cart);
+            $manager->flush();
+            // if quantity is 0, remove the product using removeProduct
+            if ($cart->getQuantity() == 0) {
+                $cart->removeProduct($product);
+                $manager = $this->getDoctrine()->getManager();
+                $manager->persist($cart);
+                $manager->flush();
+                
+            }
+            return $this->redirectToRoute('cart');
+        }
+    }
+
 }
