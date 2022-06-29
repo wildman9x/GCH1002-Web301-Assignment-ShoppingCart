@@ -1,39 +1,6 @@
-{% extends "base.html.twig" %}
+{% extends "nav.html.twig" %}
 
-{% block nav %}
-            <div class="sidebar">
-                <div class="side-nav-section">
-                    <div class="side-nav"><a data-bs-toggle="collapse" aria-expended="false" aria-controls="collapse-1" onclick= "location.href='#collapse-1'" role="button"><button class="sidebar-nav-title btn-custom button">Product</button></a>
-                        <div id="collapse-1" class="collapse">
-                            <ul class="list-unstyled">
-                                {# display all categories #}
-                                {% for category in categories %}
-                                    {# {{ path('category_show', { 'id': category.id }) }} #}
-                                    <li><a href="#">{{ category.name }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="side-nav-section">
-                    {# search field #}
-                    
-                        <form action="{{ path('product_search') }}" method="GET">
-                            <input type="text" name="search" placeholder="Search">
-                            {# <button type="submit" class="btn-custom button">Search</button> #}
-                        </form>
-                    
-                    <nav class="pages-nav side-nav-section">
-                        <ul class="list-unstyled pages-nav-items">
-                            <li><a href="{{path ('home')}}">Home</a></li>
-                            <li><a href="detail.html">Detail</a></li>
-                            <li><a href="category.html">Category</a></li>
-                            <li><a href="login.html">Login</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-{% endblock %}
+
 
 {% block body %}
     <div class="content">
