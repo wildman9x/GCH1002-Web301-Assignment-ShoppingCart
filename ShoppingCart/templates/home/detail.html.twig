@@ -21,20 +21,17 @@
                 </div>
                 <div class="side-nav-section">
                     {# search field #}
-                    
+                    <nav class="pages-nav side-nav-section">
+                        <ul class="list-unstyled pages-nav-items">
+                            <li><a href="{{path ('home')}}">Home</a></li>
+                        </ul>
+                    </nav>
                         <form action="{{ path('product_search') }}" method="GET">
                             <input type="text" name="search" placeholder="Search">
                             {# <button type="submit" class="btn-custom button">Search</button> #}
                         </form>
                     
-                    <nav class="pages-nav side-nav-section">
-                        <ul class="list-unstyled pages-nav-items">
-                            <li><a href="{{path ('home')}}">Home</a></li>
-                            <li><a href="detail.html">Detail</a></li>
-                            <li><a href="category.html">Category</a></li>
-                            <li><a href="login.html">Login</a></li>
-                        </ul>
-                    </nav>
+                    
                 </div>
             </div>
 {% endblock %}
