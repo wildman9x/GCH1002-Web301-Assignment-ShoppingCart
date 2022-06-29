@@ -49,7 +49,9 @@ class SecurityController extends AbstractController
             'users' => $userRepository->findAll(),
         ]);
     }
-
+/**
+     * @IsGranted("ROLE_ADMIN")
+     */
     // add new user
     #[Route(path: '/user/add', name: 'user_add')]
     // let the user add a new user using RegistrationFormType

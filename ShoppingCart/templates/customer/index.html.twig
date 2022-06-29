@@ -5,10 +5,27 @@
 
 {% block body %}
 
-		<h1>Customer List</h1>
+		<div class="container">
+		<h1 class="text-center">Customer List</h1>
+		<div class="row">
+		<div class="col-md-2">
+		<a type="button" style="" class="button" href="{{ path('add_customer')}}">Add</a>
+		</div>
+		<div class="col-md-4">
+                            <option selected disabled>Admin</option>
+                            <li><a href="{{path ('view_list_category')}}">Category</a></li>
+                            <li><a href="{{path ('view_list_product')}}">Product update</a></li>
+                            <li><a href="{{path ('view_list_customer')}}">Customer update</a></li>
+							</div>
+							<div class="col-md-4">
+                            <li><a href="{{path ('view_list_employee')}}">Employee update</a></li>
+                            <li><a href="{{path ('image_index')}}">Image update</a></li>
+                            <li><a href="{{path ('user_index')}}">User update</a></li>
+                            </div>
 		
-		<a href="{{ path('add_customer')}}">Add new customer</a>
 	{# Display a list of all category in a table #}
+	
+	<div class="col-lg-12">
 	<table class="table table-striped">
 		<thead>
 			<tr>
