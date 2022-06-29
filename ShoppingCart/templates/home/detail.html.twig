@@ -4,41 +4,6 @@
 	{{product.name}}
 {% endblock %}
 
-<<<<<<< Updated upstream
-{% block nav %}
-            <div class="sidebar">
-                <div class="side-nav-section">
-                    <div class="side-nav"><a data-bs-toggle="collapse" aria-expended="false" aria-controls="collapse-1" onclick= "location.href='#collapse-1'" role="button"><button class="sidebar-nav-title btn-custom button">Product</button></a>
-                        <div id="collapse-1" class="collapse">
-                            <ul class="list-unstyled">
-                                {# display all categories #}
-                                {% for category in categories %}
-                                    {# {{ path('category_show', { 'id': category.id }) }} #}
-                                    <li><a href="#">{{ category.name }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="side-nav-section">
-                    {# search field #}
-                    <nav class="pages-nav side-nav-section">
-                        <ul class="list-unstyled pages-nav-items">
-                            <li><a href="{{path ('home')}}">Home</a></li>
-                        </ul>
-                    </nav>
-                        <form action="{{ path('product_search') }}" method="GET">
-                            <input type="text" name="search" placeholder="Search">
-                            {# <button type="submit" class="btn-custom button">Search</button> #}
-                        </form>
-                    
-                    
-                </div>
-            </div>
-{% endblock %}
-=======
-
->>>>>>> Stashed changes
 
 {% block body %}
 	<div class="content">

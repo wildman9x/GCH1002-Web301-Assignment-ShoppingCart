@@ -19,7 +19,12 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email', TextType::class, [
-                'label' => 'Email'
+                'label' => 'Email',
+                // style
+                'attr' => [
+                    'class' => 'form-control',
+                    'style' => 'text-align: center;margin-bottom: 1em;'
+                ],
             ])
             ->add('roles', ChoiceType::class, [
                 'label' => 'Role',
@@ -36,7 +41,10 @@ class UserType extends AbstractType
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'attr' => ['autocomplete' => 'new-password',
+                    'class' => 'form-control form-control-lg input',
+                    'style' => 'text-align: center;margin-bottom: 1em;'
+                ],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
@@ -49,7 +57,14 @@ class UserType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('save', SubmitType::class);
+            ->add('save', SubmitType::class,
+                [
+                    'label' => 'Log in',
+                    'attr' => [
+                        'class' => 'button',
+                        'style' => 'width: 100%;'
+                    ]
+                ]);
         
     }
 
