@@ -5,7 +5,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Users</h1>
+                <h1 class="text-center">Users</h1>
+                <div class="col-md-4">
+                            <option selected disabled>Admin</option>
+                            <li><a href="{{path ('view_list_category')}}">Category</a></li>
+                            <li><a href="{{path ('view_list_product')}}">Product update</a></li>
+                            <li><a href="{{path ('view_list_customer')}}">Customer update</a></li>
+							</div>
+							<div class="col-md-4">
+                            <li><a href="{{path ('view_list_employee')}}">Employee update</a></li>
+                            <li><a href="{{path ('image_index')}}">Image update</a></li>
+                            <li><a href="{{path ('user_index')}}">User update</a></li>
+                            </div>
                 <table class="table table-striped">
                     <thead>
                         <tr>

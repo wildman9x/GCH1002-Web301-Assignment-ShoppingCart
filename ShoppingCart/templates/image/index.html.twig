@@ -3,8 +3,28 @@
 {% block body %}
     {# Display all image in a table with Id and the img#}
 
-    <a class="button" style="width:20%" href="{{ path('image_add')}}">Add</a>
-
+    
+<div class="container">
+		<h1 class="text-center">Customer List</h1>
+		<div class="row">
+		<div class="col-md-2">
+		<a class="button" type="button" style="width:100%" href="{{ path('image_add')}}">Add</a>
+		</div>
+		<div class="col-md-4">
+                            <option selected disabled>Admin</option>
+                            <li><a href="{{path ('view_list_category')}}">Category</a></li>
+                            <li><a href="{{path ('view_list_product')}}">Product update</a></li>
+                            <li><a href="{{path ('view_list_customer')}}">Customer update</a></li>
+							</div>
+							<div class="col-md-4">
+                            <li><a href="{{path ('view_list_employee')}}">Employee update</a></li>
+                            <li><a href="{{path ('image_index')}}">Image update</a></li>
+                            <li><a href="{{path ('user_index')}}">User update</a></li>
+                            </div>
+		
+	{# Display a list of all category in a table #}
+	
+	<div class="col-lg-12">
     <table class="table table-striped">
         <thead>
             <tr>
