@@ -103,6 +103,14 @@ class Cart
         return $this;
     }
 
+    // remove product
+    public function removeProduct(Product $product): self
+    {
+        $this->productID->removeElement($product);
+
+        return $this;
+    }
+
     public function setQuantity(int $quantity): self
     {
         $this->quantity = $quantity;

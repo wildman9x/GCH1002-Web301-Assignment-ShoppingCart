@@ -50,6 +50,17 @@ class CartRepository extends ServiceEntityRepository
     // /**
     //  * @return Cart[] Returns an array of Cart objects
     //  */
+    
+    // increase the quantity by 1 where the productID is the same as the productID in the cart
+    public function increaseQuantity(String $productID): void
+    {
+        $cart = $this->findOneBy(['productID' => $productID]);
+        $cart->addQuantity();
+        $this->_em->persist($cart);
+        $this->_em->flush();
+    }
+
+
     /*
     public function findByExampleField($value)
     {
