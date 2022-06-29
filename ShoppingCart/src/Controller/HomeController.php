@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Cart;
 use App\Entity\Product;
+use App\Entity\OrderInfo;
 use App\Repository\ImageRepository;
 use App\Repository\ProductRepository;
 use App\Repository\CategoryRepository;
@@ -92,7 +93,7 @@ class HomeController extends AbstractController
             }
             // if item is already in cart, increase quantity
             if ($cart->getProductID() == $product->getProductID()) {
-                $cart->addQuantity();
+                $cart->increaseQuantity($product);
                 $manager = $this->getDoctrine()->getManager();
                 $manager->persist($cart);
                 $manager->flush();
@@ -155,7 +156,7 @@ class HomeController extends AbstractController
             $cart = $user->getCustomer()->getCart();
             $product = $productRepository->find($id);
             $cart->addProductID($product);
-            $cart->addQuantity();
+            $cart->increaseQuantity($product);
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($cart);
             $manager->flush();
@@ -175,12 +176,12 @@ class HomeController extends AbstractController
             $cart = $user->getCustomer()->getCart();
             $product = $productRepository->find($id);
             $cart->addProductID($product);
-            $cart->removeQuantity();
+            $cart->decreaseQuantity($product);
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($cart);
             $manager->flush();
             // if quantity is 0, remove the product using removeProduct
-            if ($cart->getQuantity() == 0) {
+            if ($cart->getQuantityByProduct($product) == 0) {
                 $cart->removeProduct($product);
                 $manager = $this->getDoctrine()->getManager();
                 $manager->persist($cart);
@@ -188,6 +189,51 @@ class HomeController extends AbstractController
                 
             }
             return $this->redirectToRoute('cart');
+        }
+    }
+
+    // checkout the items in the cart
+    // if user is not logged in, redirect to login page
+
+    #[Route('/home/checkout', name: 'checkout')]
+    public function checkout(ProductRepository $productRepository, CategoryRepository $categoryRepository, ImageRepository $imageRepository, Request $request)
+    {
+        $user = $this->getUser();
+        if ($user == null) {
+            return $this->redirectToRoute('login');
+        } else {
+            $cart = $user->getCustomer()->getCart();
+            $product = $productRepository->findAll();
+            $image = $imageRepository->findAll();
+            $category = $categoryRepository->findAll();
+            $orderInfo = new OrderInfo();
+            $orderInfo->setEmail($user->getCustomer());
+            // pass the products, quantity to the orderInfo
+            // subtotal = price * quantity of the cart
+            $subtotal = 0;
+            foreach ($cart->getProductID() as $productTemp) {
+                $subtotal += $productTemp->getPrice() * $cart->getQuantity();
+                $orderInfo->addProductID($productTemp);
+            }
+            $orderInfo->setTotal($subtotal);
+            $orderInfo->setQuantity($cart->getQuantity());
+            // Generate a new Unique order ID
+            $orderID = uniqid();
+            $orderInfo->setOrderID($orderID);
+
+
+
+            $manager = $this->getDoctrine()->getManager();
+            $manager->persist($orderInfo);
+            $manager->flush();
+            return $this->render('home/checkout.html.twig', [
+                'cart' => $cart,
+                'products' => $product,
+                'categories' => $category,
+                'images' => $image,
+                'subtotal' => $subtotal,
+                'orderInfo' => $orderInfo
+            ]);
         }
     }
 

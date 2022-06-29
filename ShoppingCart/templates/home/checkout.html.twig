@@ -1,0 +1,23 @@
+{% extends "nav.html.twig" %}
+
+{% block body %}
+    <div class="content">
+    <div class="row">
+        <div class="col">
+        <h1>Order details</h1>
+        {# Display everything in orderInfo including orderID, products in productID, email of email, quantity, subtotal #}
+        <p>Order ID: {{ orderInfo.orderID }}</p>
+        <p>Email: {{ orderInfo.email }}</p>
+        <p>Products:</p>
+        <ul>
+            {% for product in orderInfo.getProductID() %}
+                <li>{{ product.productID }} - {{product.name}} - quantity: {{ orderInfo.quantity }}</li>
+            {% endfor %}
+        </ul>
+        <p>Subtotal: {{ orderInfo.getTotal() }}</p>
+
+        
+        </div>
+    </div>
+    </div>
+{% endblock %}
