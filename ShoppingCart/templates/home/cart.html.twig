@@ -65,13 +65,13 @@
                                                         </div>
                                                         <div class="col-md-3 d-xxl-flex justify-content-xxl-center align-items-xxl-center">
                                                             <div class="row">
-                                                                <div class="col"><a class="button" href="#" style="border-radius: 10em;">+</a></div>
+                                                                <div class="col"><a class="button" href="{{path('product_increase_quantity', {'id': product.id})}}" style="border-radius: 10em;">+</a></div>
                                                                 <div class="col"><input class="form-control" value="{{cart.getQuantity()}}" type="text" style="border-radius: 10em;"></div>
-                                                                <div class="col"><a class="button" href="#" style="border-radius: 10em;">-</a></div>
+                                                                <div class="col"><a class="button" href="{{path('product_decrease_quantity', {'id': product.id})}}" style="border-radius: 10em;">-</a></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3 d-xxl-flex align-items-xxl-center" style="background: #212121;color: rgb(247,251,255);">
-                                                            <h1 style="border-color: rgb(255,255,255);">{{product.price}}</h1>
+                                                            <h1 style="border-color: rgb(255,255,255);">{{product.price * cart.getQuantity()}}</h1>
                                                         </div>
                                                     </div>
                                                 </div>
