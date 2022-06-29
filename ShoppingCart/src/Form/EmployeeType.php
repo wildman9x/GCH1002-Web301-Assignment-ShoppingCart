@@ -56,7 +56,7 @@ class EmployeeType extends AbstractType
                 ]
 
             )
-            ->add('save', SubmitType::class);
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
