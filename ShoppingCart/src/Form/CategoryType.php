@@ -25,7 +25,7 @@ class CategoryType extends AbstractType
             [
                 'label' => 'Description'
             ])
-            ->add('Save', SubmitType::class)
+          
         ;
     }
 

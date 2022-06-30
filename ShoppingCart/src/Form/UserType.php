@@ -57,14 +57,7 @@ class UserType extends AbstractType
                     ]),
                 ],
             ])
-            ->add('save', SubmitType::class,
-                [
-                    'label' => 'Log in',
-                    'attr' => [
-                        'class' => 'button',
-                        'style' => 'width: 100%;'
-                    ]
-                ]);
+            ;
         
     }
 
