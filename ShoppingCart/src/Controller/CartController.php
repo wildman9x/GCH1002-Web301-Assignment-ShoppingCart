@@ -43,12 +43,12 @@ class CartController extends AbstractController
     public function ccartDelete(CartRepository $cartRepository, $id)
     {
         $cart = $cartRepository->find($id);
-        if ($cart == null) {
-            $this->addFlash(
-                'Error',
-                'cart not found !'
-            );
-        } else {
+        // if ($cart == null) {
+        //     $this->addFlash(
+        //         'Error',
+        //         'cart not found !'
+        //     );
+        // } else {
             $manager = $this->getDoctrine()->getManager();
             $manager->remove($cart);
             $manager->flush();
@@ -56,7 +56,7 @@ class CartController extends AbstractController
                 'Success',
                 'Delete cart success !'
             );
-        }
+        // }
         return $this->redirectToRoute('view_list_cart');
     }
 
