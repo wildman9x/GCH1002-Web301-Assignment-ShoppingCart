@@ -814,3 +814,8 @@ page-link:hover {
   max-height: 10em;
 }
 
+.invoice-head {
+  background: #1b1b1b;
+  color: rgb(234,229,229);
+}
+

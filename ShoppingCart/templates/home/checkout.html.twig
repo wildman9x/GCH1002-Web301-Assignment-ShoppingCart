@@ -1,23 +1,80 @@
 {% extends "nav.html.twig" %}
 
 {% block body %}
-    <div class="content">
-    <div class="row">
-        <div class="col">
-        <h1>Order details</h1>
-        {# Display everything in orderInfo including orderID, products in productID, email of email, quantity, subtotal #}
-        <p>Order ID: {{ orderInfo.orderID }}</p>
-        <p>Email: {{ orderInfo.email }}</p>
-        <p>Products:</p>
-        <ul>
-            {% for product in orderInfo.getProductID() %}
-                <li>{{ product.productID }} - {{product.name}} - quantity: {{ orderInfo.quantity }}</li>
-            {% endfor %}
-        </ul>
-        <p>Subtotal: {{ orderInfo.getTotal() }}</p>
+	<div class="content">
+		
 
-        
-        </div>
-    </div>
-    </div>
+		<div class="content">
+			<div class="row">
+				<div class="col">
+					<h1 style="font-size: 7em;background: #0e0e0e;color: rgb(213,213,213);width: 6.05em;">Invoice</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<h1 style="font-size: 1.5em;background: #ffffff;color: rgb(48,48,48);width: 24.05em;margin-bottom: 2em;">Invoice number:
+						{{ orderInfo.orderID }}</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<h1 style="font-size: 2.5em;background: #ffffff;color: rgb(48,48,48);width: 24.05em;font-weight: bold;">Billing for</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<h1 style="font-size: 1.5em;background: #ffffff;color: rgb(48,48,48);width: 24.05em;">Name:
+						{{ orderInfo.email.name }}</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<h1 style="font-size: 1.5em;background: #ffffff;color: rgb(48,48,48);width: 24.05em;">Email address:
+						{{ orderInfo.email }}</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<h1 style="font-size: 1.5em;background: #ffffff;color: rgb(48,48,48);width: 24.05em;">Phone number:
+						{{ orderInfo.email.phoneNumber }}</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="table-responsive">
+						<table class="table">
+							<thead class="invoice-head">
+								<tr>
+									<th>Product Code</th>
+									<th>Product Name</th>
+									<th>Unit Price</th>
+									<th>Quantity</th>
+									<th>Total</th>
+								</tr>
+							</thead>
+							<tbody>
+								
+                                {% for product in orderInfo.getProductID() %}
+								<tr>
+									
+										<td>{{ product.productID }}</td>
+										<td>{{product.name}}</td>
+										<td>{{product.price}}</td>
+										<td>{{ orderInfo.quantity }}</td>
+										<td>{{ product.price * orderInfo.quantity }}</td>
+									
+								</tr>
+                                {% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col d-xxl-flex justify-content-xxl-end">
+					<h1 style="margin-top: 1em;font-weight: bold;">Subtotal: ${{subtotal}}</h1>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
