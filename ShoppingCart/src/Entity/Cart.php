@@ -87,18 +87,32 @@ class Cart
         return $this->quantity;
     }
 
-    // increase quantity by 1
-    public function addQuantity(): self
+    // get quantity of a product by product
+    public function getQuantityByProduct(Product $product): ?int
     {
-        $this->quantity++;
+        foreach ($this->productID as $productID) {
+            if ($productID->getId() === $product->getId()) {
+                return $this->getQuantity();
+            }
+        }
+        return null;
+    }
+    
+
+    // increase quantity of a product by 1
+    public function increaseQuantity(Product $product): self
+    {
+        $this->quantity += 1;
+        $product->addCart($this);
 
         return $this;
     }
 
     // decrease quantity by 1
-    public function removeQuantity(): self
+    public function decreaseQuantity(Product $product): self
     {
-        $this->quantity--;
+        $this->quantity -= 1;
+        
 
         return $this;
     }
