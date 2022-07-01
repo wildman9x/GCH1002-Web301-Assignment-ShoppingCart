@@ -1,52 +1,78 @@
 {% extends "base.html.twig" %}
 
 
-{% block title %}Homepage{% endblock %}
-
+{% block title %}Homepage
+{% endblock %}
 
 
 {% block nav %}
-            <div class="sidebar">
-                <div class="side-nav-section">
-                    <div class="side-nav"><a data-bs-toggle="collapse" aria-expended="false" aria-controls="collapse-1" onclick= "location.href='#collapse-1'" role="button"><button class="sidebar-nav-title btn-custom button">Product</button></a>
-                        <div id="collapse-1" class="collapse">
-                            <ul class="list-unstyled">
-                                {# display all categories #}
-                                {% for category in categories %}
-                                    {# {{ path('category_show', { 'id': category.id }) }} #}
-                                    <li><a href="#">{{ category.name }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="side-nav-section">
-                    {# search field #}
-                    
-                        <form action="{{ path('product_search') }}" method="GET">
-                            <input type="text" name="search" placeholder="Search">
-                            {# <button type="submit" class="btn-custom button">Search</button> #}
-                        </form>
-                    
-                    <nav class="pages-nav side-nav-section">
-                        <ul class="list-unstyled pages-nav-items">
-                        <option selected disabled>Customer</option>
-                            <li><a href="{{path('app_login')}}">Login</a></li>
-                            <li><a href="{{path ('home')}}">Home</a></li>
-                            <li><a href="{{path ('cart')}}">Cart</a></li>
-                            {% if is_granted('ROLE_ADMIN') %}
-                            <div class="">
-                            <option selected disabled>Admin</option>
-                            <li><a href="{{path ('view_list_category')}}">Category</a></li>
-                            <li><a href="{{path ('view_list_product')}}">Product update</a></li>
-                            <li><a href="{{path ('view_list_customer')}}">Customer update</a></li>
-                            <li><a href="{{path ('view_list_employee')}}">Employee update</a></li>
-                            <li><a href="{{path ('image_index')}}">Image update</a></li>
-                            <li><a href="{{path ('user_index')}}">User update</a></li>
-                            </div>
-                            {% endif %}
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+	<div class="sidebar">
+		<div class="side-nav-section">
+			<div class="side-nav">
+				<a data-bs-toggle="collapse" aria-expended="false" aria-controls="collapse-1" onclick="location.href='#collapse-1'" role="button">
+					<button class="sidebar-nav-title btn-custom button">Product</button>
+				</a>
+				<div id="collapse-1" class="collapse">
+					<ul
+						class="list-unstyled">
+						{# display all categories #}
+						{% for category in categories %}
+							{# {{ path('category_show', { 'id': category.id }) }} #}
+							<li>
+								<a href="#">{{ category.name }}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div
+			class="side-nav-section">
+			{# search field #}
+
+			<form action="{{ path('product_search') }}" method="GET">
+				<input
+				type="text" name="search" placeholder="Search">
+			{# <button type="submit" class="btn-custom button">Search</button> #}
+			</form>
+
+			<nav class="pages-nav side-nav-section">
+				<ul class="list-unstyled pages-nav-items">
+					<option selected disabled>Customer</option>
+					<li>
+						<a href="{{path('app_login')}}">Login</a>
+					</li>
+					<li>
+						<a href="{{path ('home')}}">Home</a>
+					</li>
+					<li>
+						<a href="{{path ('cart')}}">Cart</a>
+					</li>
+					{% if is_granted('ROLE_ADMIN') %}
+						<div class="">
+							<option selected disabled>Admin</option>
+							<li>
+								<a href="{{path ('view_list_category')}}">Category</a>
+							</li>
+							<li>
+								<a href="{{path ('view_list_product')}}">Product update</a>
+							</li>
+							<li>
+								<a href="{{path ('view_list_customer')}}">Customer update</a>
+							</li>
+							<li>
+								<a href="{{path ('view_list_employee')}}">Employee update</a>
+							</li>
+							<li>
+								<a href="{{path ('image_index')}}">Image update</a>
+							</li>
+							<li>
+								<a href="{{path ('user_index')}}">User update</a>
+							</li>
+						</div>
+					{% endif %}
+				</ul>
+			</nav>
+		</div>
+	</div>
 {% endblock %}

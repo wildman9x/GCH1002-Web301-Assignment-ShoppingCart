@@ -16,17 +16,18 @@
 					<span class="product-item-price">{{product.price}}</span>
 				</div>
 			</div>
-			<form class="product-add" ><input class="form-control" type="hidden"><button class="button" onclick="location.href = '{{path('product_add_cart', {'id': product.id})}}'" type="button" style="width: 100%;">Add to cart</button>
+			<form class="product-add"><input class="form-control" type="hidden">
+			<button class="button" onclick="location.href = '{{path('product_add_cart', {'id': product.id})}}'" type="button" style="width: 100%;">Add to cart</button>
 			</form>
 		</div>
 		{# create a collage of the product's images #}
-        <div class="product-images">
-            <div class="product-images-collage">
-                {% for image in product.images %}
-                    <img src="{{asset('images/product/'~image.imageID)}}" alt="{{product.id}}" style="width:50%; height:auto; border:solid .15em #212121; margin: 1em; display:flex">
-                {% endfor %}
-            </div>
-        </div>
+		<div class="product-images">
+			<div class="product-images-collage">
+				{% for image in product.images %}
+					<img src="{{asset('images/product/'~image.imageID)}}" alt="{{product.id}}" style="width:50%; height:auto; border:solid .15em #212121; margin: 1em; display:flex">
+				{% endfor %}
+			</div>
+		</div>
 
 		<div class="product-description">
 			<p>{{product.info}}</p>
