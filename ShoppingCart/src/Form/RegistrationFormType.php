@@ -33,8 +33,6 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
-                
-
                 // style
                 'attr' => [
                     'class' => 'form-control form-control-lg input',

@@ -1,8 +1,11 @@
 {% extends "nav.html.twig" %}
 
+{% block title %}Checkout
+{% endblock %}
+
 {% block body %}
 	<div class="content">
-		
+
 
 		<div class="content">
 			<div class="row">
@@ -53,18 +56,16 @@
 								</tr>
 							</thead>
 							<tbody>
-								
-                                {% for product in orderInfo.getProductID() %}
-								<tr>
-									
+
+								{% for product in orderInfo.getProductID() %}
+									<tr>
 										<td>{{ product.productID }}</td>
 										<td>{{product.name}}</td>
 										<td>{{product.price}}</td>
 										<td>{{ orderInfo.quantity }}</td>
 										<td>{{ product.price * orderInfo.quantity }}</td>
-									
-								</tr>
-                                {% endfor %}
+									</tr>
+								{% endfor %}
 							</tbody>
 						</table>
 					</div>

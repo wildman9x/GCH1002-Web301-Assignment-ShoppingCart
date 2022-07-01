@@ -28,7 +28,7 @@ class HomeController extends AbstractController
         // get 3 random images from $image
         $randomImages = $imageRepository->findBy([], ['imageID' => 'ASC'], 3, 0);
         $category = $categoryRepository->findAll();
-        
+
 
         return $this->render('home/index.html.twig', [
             'images' => $image,
@@ -36,7 +36,7 @@ class HomeController extends AbstractController
             'randomImage' => $randomImage,
             'randomImages' => $randomImages,
             'categories' => $category
-            
+
         ]);
     }
 
@@ -79,7 +79,7 @@ class HomeController extends AbstractController
         $image = $imageRepository->findAll();
         $user = $this->getUser();
         if ($user == null) {
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('login');
         } else {
             $cart = $user->getCustomer()->getCart();
             if ($cart == null) {
@@ -104,9 +104,6 @@ class HomeController extends AbstractController
                 $manager->persist($cart);
                 $manager->flush();
             }
-            // $manager = $this->getDoctrine()->getManager();
-            // $manager->persist($cart);
-            // $manager->flush();
             return $this->redirectToRoute('cart');
         }
     }
@@ -118,12 +115,12 @@ class HomeController extends AbstractController
     public function cart(ProductRepository $productRepository, CategoryRepository $categoryRepository, ImageRepository $imageRepository, Request $request)
     {
         $user = $this->getUser();
-        
+
         if ($user == null) {
             return $this->redirectToRoute('login');
         } else {
-            
-            
+
+
             $cart = $user->getCustomer()->getCart();
             $product = $productRepository->findAll();
             $image = $imageRepository->findAll();
@@ -148,7 +145,7 @@ class HomeController extends AbstractController
     #[Route('/product/increase/{id}', name: 'product_increase_quantity')]
     public function productIncreaseQuantity(ProductRepository $productRepository, CategoryRepository $categoryRepository, ImageRepository $imageRepository, Request $request, $id)
     {
-        
+
         $user = $this->getUser();
         if ($user == null) {
             return $this->redirectToRoute('login');
@@ -163,7 +160,7 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('cart');
         }
     }
-    
+
 
     // decrease quantity by one when the minus button is clicked, if the quantity is 1, remove the item from cart
     #[Route('/product/decrease/{id}', name: 'product_decrease_quantity')]
@@ -186,7 +183,6 @@ class HomeController extends AbstractController
                 $manager = $this->getDoctrine()->getManager();
                 $manager->persist($cart);
                 $manager->flush();
-                
             }
             return $this->redirectToRoute('cart');
         }
@@ -220,9 +216,6 @@ class HomeController extends AbstractController
             // Generate a new Unique order ID
             $orderID = uniqid();
             $orderInfo->setOrderID($orderID);
-
-
-
             $manager = $this->getDoctrine()->getManager();
             $manager->persist($orderInfo);
             $manager->flush();
@@ -236,5 +229,4 @@ class HomeController extends AbstractController
             ]);
         }
     }
-
 }
