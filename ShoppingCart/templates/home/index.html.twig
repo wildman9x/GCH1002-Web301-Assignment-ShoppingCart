@@ -1,62 +1,79 @@
 {% extends 'nav.html.twig' %}
 
-{% block title %}Homepage{% endblock %}
+{% block title %}Homepage
+{% endblock %}
 
 {% block welcome %}
-        <section class="welcome gradient home-welcome">
-            <div class="welcome-messaging">
-                <h2>Hand-made</h2><a data-bss-hover-animate="pulse" class="button" style="width: 255px;" href="#">Shop with us</a>
-            </div>
-            <div class="diagonal-line pattern"><svg width='4' height='4' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'><g fill='##212121' fill-opacity='0.7' fill-rule='evenodd'><path d='M5 0h1L0 6V5zM6 5v1H5z'/></g></svg> </div>
-            
-            <div class="welcome-image"><img src="{{asset('images/product/'~random(images).imageID)}}"></div>
-        </section>
+	<section class="welcome gradient home-welcome">
+		<div class="welcome-messaging">
+			<h2>Hand-made</h2>
+			<a data-bss-hover-animate="pulse" class="button" style="width: 255px;" href="#">Shop with us</a>
+		</div>
+		<div class="diagonal-line pattern">
+			<svg width='4' height='4' viewbox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'>
+				<g fill='##212121' fill-opacity='0.7' fill-rule='evenodd'><path d='M5 0h1L0 6V5zM6 5v1H5z'/></g>
+			</svg>
+		</div>
+
+		<div class="welcome-image"><img src="{{asset('images/product/'~random(images).imageID)}}"></div>
+	</section>
 {% endblock %}
 
 
-
 {% block body %}
-    <div class="content">
-                <div class="d-flex all-product-banner" style="background: linear-gradient(140deg, rgb(222, 199, 178) 20%, rgb(255, 169, 122) 70%);">
-                    <div class="banner-detail" style="padding: 7.5em;">
-                        <div class="tag"><span>All products</span></div>
-                        <div class="banner-text" style="padding-top: 0;margin-top: 0;">
-                            <h2>All of our products</h2>
-                        </div>
-                    </div>
-                    <div class="banner-image-container" style="height:auto">
-                        <div class="banner-images">
-                            <div class="banner-image"><img src="{{asset('images/product/'~random(images).imageID)}}" style="background: linear-gradient(140deg, rgb(222, 199, 178) 20%, rgb(255, 169, 122) 70%);     height: 100%;     width: 100%;"></div>
-                            <div class="banner-image"><img src="{{asset('images/product/'~random(images).imageID)}}" style="background: linear-gradient(140deg, rgb(222, 199, 178) 20%, rgb(255, 169, 122) 70%);     height: 100%;     width: 100%;"></div>
-                            <div class="banner-image"><img src="{{asset('images/product/'~random(images).imageID)}}" style="background: linear-gradient(140deg, rgb(222, 199, 178) 20%, rgb(255, 169, 122) 70%);     height: 100%;     width: 100%;"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-list" data-per-row="3">
-                    
-                    {# display every product in products, 3 products each row #}
-                    <div class="row">
-                    {% for product in products %}
-                        
-                            <div class="col-xxl-4"><a class="product-item rollover" href="{{path('product_detail', {'id': product.id })}}">
-                                    <div class="product-item-container">
-                                        <figure class="figure product-item-image-container"><img class="img-fluid figure-img product-image" src="{{asset('images/product/'~product.getRandomImage().imageID)}}">
-                                            <div class="product-item-status"><span>Pre-order</span></div>
-                                        </figure>
-                                        <div class="product-item-info">
-                                            <div class="product-item-info-header">
-                                                <div class="product-item-info-name"><span>{{product.name}}</span></div>
-                                                <div class="product-item-price"><span class="currency-sign">$</span><span>{{product.price}}</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a></div>
-                            {# {% endfor %} #}
-                        
-                    {% endfor %}
-                    </div>
+	<div class="content">
+		<div class="d-flex all-product-banner" style="background: linear-gradient(140deg, rgb(222, 199, 178) 20%, rgb(255, 169, 122) 70%);">
+			<div class="banner-detail" style="padding: 7.5em;">
+				<div class="tag">
+					<span>All products</span>
+				</div>
+				<div class="banner-text" style="padding-top: 0;margin-top: 0;">
+					<h2>All of our products</h2>
+				</div>
+			</div>
+			<div class="banner-image-container" style="height:auto">
+				<div class="banner-images">
+					<div class="banner-image"><img src="{{asset('images/product/'~random(images).imageID)}}" style="background: linear-gradient(140deg, rgb(222, 199, 178) 20%, rgb(255, 169, 122) 70%);     height: 100%;     width: 100%;"></div>
+					<div class="banner-image"><img src="{{asset('images/product/'~random(images).imageID)}}" style="background: linear-gradient(140deg, rgb(222, 199, 178) 20%, rgb(255, 169, 122) 70%);     height: 100%;     width: 100%;"></div>
+					<div class="banner-image"><img src="{{asset('images/product/'~random(images).imageID)}}" style="background: linear-gradient(140deg, rgb(222, 199, 178) 20%, rgb(255, 169, 122) 70%);     height: 100%;     width: 100%;"></div>
+				</div>
+			</div>
+		</div>
+		<div
+			class="product-list" data-per-row="3">
 
-                    
-                </div>
-    </div>
+			{# display every product in products, 3 products each row #}
+			<div class="row">
+				{% for product in products %}
+
+					<div class="col-xxl-4">
+						<a class="product-item rollover" href="{{path('product_detail', {'id': product.id })}}">
+							<div class="product-item-container">
+								<figure class="figure product-item-image-container"><img class="img-fluid figure-img product-image" src="{{asset('images/product/'~product.getRandomImage().imageID)}}">
+									<div class="product-item-status">
+										<span>Pre-order</span>
+									</div>
+								</figure>
+								<div class="product-item-info">
+									<div class="product-item-info-header">
+										<div class="product-item-info-name">
+											<span>{{product.name}}</span>
+										</div>
+										<div class="product-item-price">
+											<span class="currency-sign">$</span>
+											<span>{{product.price}}</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+					{# {% endfor %} #}
+
+				{% endfor %}
+			</div>
+
+
+		</div>
+	</div>
 {% endblock %}
