@@ -1,9 +1,19 @@
 {% extends "base.html.twig" %}
-
 {% block body %}
-<div>
-<h1>Add new Category</h1>
-{{ form_start (categoryForm) }}
-{{ form_end (categoryForm) }}
-</div>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Add a category</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xxl-12 d-xxl-flex justify-content-xxl-center align-items-xxl-center">
+                {{ form_start(categoryForm) }}
+                {{ form_widget(categoryForm) }}
+                <br>
+                <input type="submit" value="Add" width="20%" class="button" />
+                {{ form_end(categoryForm) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

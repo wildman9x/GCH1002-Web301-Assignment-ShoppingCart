@@ -1,24 +1,20 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
+	<div class="container">
+		<div class="row">
+			<divCustomerCustomer{{customer.name}}</td class="col-lg-12" <table class "table table-striped"> <tr> <th> detail</th> </tr> <tr> <th> name</th> <td>></tr>
+			<tr>
+				<th>Customer Email</th>
+				<td>{{ customer.email }}</td>
+			</tr>
+			<tr>
+				<th>Customer phone</th>
+				<td>{{ customer.phoneNumber }}</td>
+			</tr>
+		</table>
+	</div>
+</div>
 <div>
-<table class "table table-striped">
-   <tr>
-      <th>Customer Detail</th>
-   </tr>
-   <tr>
-      <th>Customer Name</th>
-      <td>{{ customer.name }}</td>
-   </tr>
-   <tr>
-      <th>Customer Email</th>
-      <td>{{ customer.email }}</td>
-   </tr>
-   <tr>
-      <th>Customer phone</th>
-      <td>{{ customer.phoneNumber }}</td>
-   </tr>
-   </table>
-      </div>
-   
+
 {% endblock %}

@@ -1,10 +1,21 @@
 {% extends "base.html.twig" %}
-
 {% block body %}
-{# a form to add a new user #}
-{{ form_start(userForm) }}
-{{ form_widget(userForm) }}
-{{ form_end(userForm) }}
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Add a User</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xxl-12 d-xxl-flex justify-content-xxl-center align-items-xxl-center">
+                {{ form_start(userForm) }}
+                {{ form_widget(userForm) }}
+                <br>
+                <input type="submit" value="Add" width="20%" class="button" />
+                {{ form_end(userForm) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {# {% block javascripts %}

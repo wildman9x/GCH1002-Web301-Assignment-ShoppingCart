@@ -1,8 +1,9 @@
 {% extends "base.html.twig" %}
 {% block body %}
-	<div>
+
+	<div class="container">
 	<div class="row">
-	<div class="col-lg-10">
+	<div class="col-lg-7">
 		<form  action="{{ path('search_product_name') }}" method="post">
 			<input  type="search" name="keyword" required placeholder="Search by product name">
 		</form>
@@ -41,6 +42,7 @@
 		<table class = "table table-striped">
 			<thead>
 				<tr>
+					<th>no.Id</th>
 					<th>Product Id</th>
 					<th>Product Name</th>
 					<th>Product Price</th>
@@ -53,6 +55,8 @@
 				{% for product in products %}
 					<tr>
 						<td>{{ product.id }}
+						</td>
+						<td>{{ product.productID }}
 						</td>
 						<td>{{ product.name }}</td>
 						<td>{{ product.price }}</td>
@@ -68,5 +72,6 @@
 				{% endfor %}
 			</tbody>
 		</table>
+	</div>
 	</div>
 {% endblock %}
